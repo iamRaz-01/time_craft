@@ -1,11 +1,26 @@
 // app.js
-const express = require('express');
-const bodyParser = require('body-parser');
-
+import express from"express";
+import bodyParser from"body-parser";
+import mySql from 'mysql2'
+ 
 const app = express();
-const port = 3000;
+const port = 3030;
+const connection = mySql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '123456',
+  database: 'timecraft',
+});
+connection.connect(err => {
+  if (err) {
+    console.error('Error connecting to MySQL:', err);
+    return;
+  }
+  console.log('Connected to MySQL database');
+});
 
 app.use(bodyParser.json());
+
 
 let items = [
   { id: 1, name: 'Item 1' },
@@ -46,4 +61,4 @@ app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
 
-export default app;
+export { app , connection };

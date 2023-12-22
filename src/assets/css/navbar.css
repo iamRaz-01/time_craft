@@ -1,0 +1,8 @@
+.nav-bar-container {
+    width: 250px;
+    height: 100vh;
+    background-color: black;
+    border-top-right-radius: 30px;
+    position: fixed;
+
+}

@@ -1,0 +1,29 @@
+.task-status {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.status-card {
+    width: 380px;
+    height: 250px;
+    border-radius: 40PX;
+    border-top-left-radius: 120px;
+    background-color: white;
+}
+
+.status-card span {
+    width: 70px;
+    height: 70px;
+    display: flex;
+    font-size: 30px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    margin-top: -20px;
+    margin-left: -20px;
+    border: 15px solid aliceblue;
+    background-color: white;
+}

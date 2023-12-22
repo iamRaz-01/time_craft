@@ -1,0 +1,13 @@
+.header {
+    width: 99%;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.profile-div {
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 2%;
+}

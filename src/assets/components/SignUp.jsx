@@ -32,7 +32,7 @@ const SignUp = ({ onPageChange }) => {
       title: "Confirm Password",
       icon: "lock",
       place: "Confirm your password",
-       event: setConfirmPassword,
+      event: setConfirmPassword,
     },
   ];
 
@@ -48,7 +48,7 @@ const SignUp = ({ onPageChange }) => {
   return (
     <form onSubmit={(e) => {
       e.preventDefault();
-     // create();
+      // create();
     }} className="sign-up">
       <h1>Sign Up</h1>
       {inputs}

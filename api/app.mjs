@@ -3,7 +3,6 @@ import express from"express";
 import cors from 'cors';
 import bodyParser from"body-parser";
 import mySql from 'mysql2'
-import {User} from './model/model.mjs'
 import UserDao from './dao/userDao.mjs'
  
 const app = express();
@@ -16,9 +15,9 @@ const connection = mySql.createConnection({
 });
 app.use(cors({
   origin: 'http://localhost:3000',  // Specify allowed origin(s)
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',  // Specify allowed HTTP methods
   credentials: true,  // Allow credentials (e.g., cookies) to be sent with the request
-}));connection.connect(err => {
+}));
+connection.connect(err => {
   if (err) {
     console.error('Error connecting to MySQL:', err);
     return;

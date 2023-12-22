@@ -1,5 +1,4 @@
 import SignUp from "./components/sign/SignUp";
-import { useState } from "react";
 
 function App() {
   const [isSign , setSign] = useState(false);
@@ -8,7 +7,7 @@ function App() {
 
   return (
     <div>
-      <SignUp event = {setSign} />
+      <SignUp />
     </div>
   );
 }

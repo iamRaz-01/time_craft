@@ -1,5 +1,6 @@
 import { Input } from "./Input";
 import { RegisterButton } from "./RegisterButton";
+import "../css/sign.css"
 const signInInputData = [
   {
     type: "email",
@@ -19,11 +20,11 @@ const signInInputs = signInInputData.map((item) => {
 
 const SignIn = () => {
   return (
-    <div>
+    <form className="sign-up sign-in">
       <h1 className="signIn-head">Sign In</h1>
       {signInInputs}
       <RegisterButton buttonFor="Sign In" />
-    </div>
+    </form>
   );
 };
 

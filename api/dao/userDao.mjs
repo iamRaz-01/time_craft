@@ -30,6 +30,7 @@ class UserDao {
            return  r ;
          })
     }
+  
 }
 
 export default UserDao ;

@@ -1,13 +1,13 @@
-import SignUp from "./components/sign/SignUp";
-
+import { useState } from "react";
+import {SignUp} from "./assets/components/SignUp";
+import { SignIn } from "./assets/components/SignIn";
 function App() {
   const [isSign , setSign] = useState(false);
   if(isSign)alert("Successfully signed in ");
-  
-
   return (
     <div>
-      <SignUp />
+      <SignUp event={setSign} />
+      
     </div>
   );
 }

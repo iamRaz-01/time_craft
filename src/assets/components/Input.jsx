@@ -1,14 +1,14 @@
-const Input = (props) => {
+const Input = ({ properties }) => {
   return (
     <div className="input-div">
-      <span className="material-symbols-outlined">{props.properties.icon}</span>
+      <span className="material-symbols-outlined">{properties.icon}</span>
       <input
-        type={props.properties.type}
-        placeholder={props.properties.place}
-        pattern={props.properties.pattern}
-        title={props.properties.title}
+        type={properties.type}
+        placeholder={properties.place}
+        pattern={properties.pattern}
+        title={properties.title || ""}
         onChange={(e) => {
-          props.properties.event(e.target.value);
+          properties.event(e.target.value);
         }}
       />
     </div>

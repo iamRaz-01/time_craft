@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Input } from "./Input";
 import { RegisterButton } from "./RegisterButton";
 
-const SignUp = () => {
+const SignUp = ({ onPageChange }) => {
   const [username, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,15 +37,23 @@ const SignUp = () => {
     },
   ];
 
-  const inputs = data.map((e) => {
-    return <Input properties={e} />;
-  });
+  const inputs = data.map((item, index) => (
+    <Input key={index} properties={item} title={item.title} />
+  ));
+
+  const handleSingUpValues = () => {
+    console.log(`${email} ${password} ${username} ${confirmPassword}`);
+    onPageChange();
+  };
 
   return (
     <div className="sign-up">
       <h1>Sign Up</h1>
       {inputs}
-      <RegisterButton buttonFor="Sign Up"></RegisterButton>
+      <RegisterButton
+        registerAction={handleSingUpValues}
+        buttonFor="Sign Up"
+      ></RegisterButton>
     </div>
   );
 };

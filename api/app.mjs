@@ -1,7 +1,10 @@
 // app.js
 import express from"express";
+import cors from 'cors';
 import bodyParser from"body-parser";
 import mySql from 'mysql2'
+import {User} from './model/model.mjs'
+import UserDao from './dao/userDao.mjs'
  
 const app = express();
 const port = 3030;
@@ -11,7 +14,11 @@ const connection = mySql.createConnection({
   password: '123456',
   database: 'timecraft',
 });
-connection.connect(err => {
+app.use(cors({
+  origin: 'http://localhost:3000',  // Specify allowed origin(s)
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',  // Specify allowed HTTP methods
+  credentials: true,  // Allow credentials (e.g., cookies) to be sent with the request
+}));connection.connect(err => {
   if (err) {
     console.error('Error connecting to MySQL:', err);
     return;
@@ -21,49 +28,17 @@ connection.connect(err => {
 
 app.use(bodyParser.json());
 
-
-let items = [
-  { id: 1, name: 'Item 1' },
-  { id: 2, name: 'Item 2' },
-  { id: 3, name: 'Item 3' },
-];
-
-// GET endpoint to fetch all items
-app.get('/api/items', (req, res) => {
-  res.json(items);
-});
-// import UserDao from "../dao/userDao.mjs";
-app.get('/api/timecraft/user',(req,res)=>{
-  
+app.post('/api/timecraft/user/create',(req,res)=>{
+  let data = req.body ;
+  const dao =  new UserDao()
+  dao.createUser(data);
    res.json({mess:"success"})
 })
 
-// POST endpoint to add a new item
-app.post('/api/items', (req, res) => {
-  const newItem = req.body;
-  items.push(newItem);
-  res.status(201).json(newItem);
-});
-
-// PUT endpoint to update an existing item
-app.put('/api/items/:id', (req, res) => {
-  const itemId = parseInt(req.params.id);
-  const updatedItem = req.body;
-
-  items = items.map(item => (item.id === itemId ? updatedItem : item));
-
-  res.json(updatedItem);
-});
-
-// DELETE endpoint to delete an item
-app.delete('/api/items/:id', (req, res) => {
-  const itemId = parseInt(req.params.id);
-  items = items.filter(item => item.id !== itemId);
-  res.sendStatus(204);
-});
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
 
 export { app , connection };

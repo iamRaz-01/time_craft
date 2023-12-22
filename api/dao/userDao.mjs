@@ -29,7 +29,6 @@ class UserDao {
             }
            return  r ;
          })
-         this.closeConnection();
     }
 }
 

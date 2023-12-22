@@ -30,6 +30,16 @@ class UserDao {
            return  r ;
          })
     }
+    loginUser(email,password){
+      connection.query("select email from user where email =?",email ,(e,r)=>{
+        if(e){
+            console.log(e);
+        }
+        if(email === r){checkPresence = true}
+
+       })
+
+    }
   
 }
 

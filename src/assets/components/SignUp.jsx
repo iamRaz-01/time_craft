@@ -2,12 +2,11 @@ import "../css/sign.css";
 import { useState } from "react";
 import { Input } from "./Input";
 import { RegisterButton } from "./RegisterButton";
-
-const SignUp = (props) => {
+const SignUp = ({ onPageChange }) => {
   const [username, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-//  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   let data = [
     {
       type: "text",
@@ -33,40 +32,30 @@ const SignUp = (props) => {
       title: "Confirm Password",
       icon: "lock",
       place: "Confirm your password",
-      // event: setConfirmPassword,
+       event: setConfirmPassword,
     },
   ];
 
-  const inputs = data.map((e) => {
-    return <Input properties={e} />;
-  });
-  const create = () => {
-		const xml = new XMLHttpRequest(false);
-		const data = { username, email, password };
-		xml.open("POST", "http://localhost:3030/api/timecraft/user/create", true);
-		xml.setRequestHeader("Content-Type", "application/json");
-		xml.onreadystatechange = () => {
-			if (xml.readyState === 4) {
-				if (xml.status === 200) {
-					const result = JSON.parse(xml.responseText);
-					props.event(true);
-					console.log(result);
-				} else {
-					alert("server error");
-				}
-			}
-		};
-		xml.send(JSON.stringify(data));
-	};
+  const inputs = data.map((item, index) => (
+    <Input key={index} properties={item} title={item.title} />
+  ));
+
+  const handleSingUpValues = () => {
+    console.log(`${email} ${password} ${username} ${confirmPassword}`);
+    onPageChange();
+  };
 
   return (
-    <form  onSubmit={(e) => {
+    <form onSubmit={(e) => {
       e.preventDefault();
-      create();
+     // create();
     }} className="sign-up">
       <h1>Sign Up</h1>
       {inputs}
-      <RegisterButton buttonFor="Sign Up"></RegisterButton>
+      <RegisterButton
+        registerAction={handleSingUpValues}
+        buttonFor="Sign Up"
+      ></RegisterButton>
     </form>
   );
 };

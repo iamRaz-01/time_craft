@@ -1,7 +1,9 @@
-const RegisterButton = ({ buttonFor }) => {
+const RegisterButton = ({ buttonFor, registerAction }) => {
   return (
     <>
-      <button className="common-button"> {buttonFor}</button>
+      <button className="common-button" onClick={registerAction}>
+        {buttonFor}
+      </button>
     </>
   );
 };

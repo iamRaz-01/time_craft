@@ -1,14 +1,12 @@
+import { SignUp } from "./assets/components/SignUp.jsx";
+import { SignIn } from "./assets/components/SignIn.jsx";
 import { useState } from "react";
-import {SignUp} from "./assets/components/SignUp";
+
 function App() {
-  const [isSign , setSign] = useState(false);
-  if(isSign)alert("Successfully signed in ");
-  return (
-    <div>
-      <SignUp event={setSign} />
-      
-    </div>
-  );
+  const pages = [<SignUp onPageChange={() => setPageIndex(1)} />, <SignIn />];
+  const [pageIndex, setPageIndex] = useState(0);
+
+  return <div>{pages[pageIndex]}</div>;
 }
 
 export default App;

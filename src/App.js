@@ -1,6 +1,10 @@
+import SignUp from "./components/sign/SignUp";
+
 function App() {
   return (
-    <div></div>
+    <div>
+      <SignUp />
+    </div>
   );
 }
 

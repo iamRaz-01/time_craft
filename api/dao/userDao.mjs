@@ -1,4 +1,3 @@
-import { User } from "../model/model.mjs";
 import {connection} from '../app.mjs'
 
 class UserDao {
@@ -33,3 +32,5 @@ class UserDao {
          this.closeConnection();
     }
 }
+
+export default UserDao ;

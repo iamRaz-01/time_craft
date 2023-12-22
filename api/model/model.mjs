@@ -7,23 +7,23 @@ class User {
 }
 
 class Task {
-    constructor(task_id, list_id, task_name, description, priority, status, due_date) {
-        this.task_id = task_id;
-        this.list_id = list_id;
-        this.task_name = task_name;
-        this.description = description;
-        this.priority = priority;
-        this.status = status;
-        this.due_date = due_date;
+    constructor(data) {
+        this.task_id = data.task_id;
+        this.list_id = data.list_id;
+        this.task_name = data.task_name;
+        this.description = data.description;
+        this.priority = data.priority;
+        this.status = data.status;
+        this.due_date = data.due_date;
     }
 }
 
 class List {
-    constructor(list_id, user_id, list_name, description) {
-        this.list_id = list_id;
-        this.user_id = user_id;
-        this.list_name = list_name;
-        this.description = description;
+    constructor(data) {
+        this.list_id = data.list_id;
+        this.user_id = data.user_id;
+        this.list_name = data.list_name;
+        this.description = data.description;
     }
 }
 

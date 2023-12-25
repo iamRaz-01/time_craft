@@ -28,6 +28,13 @@ function AddTask() {
         place: "",
         event: a
 
+    }, {
+        type: "text",
+        title: "",
+        icon: "timer",
+        place: "  ",
+        event: a
+
     }]
     let buttons = data.map((e) => {
         return (<Input properties={e} />)

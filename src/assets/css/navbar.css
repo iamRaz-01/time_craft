@@ -1,9 +1,23 @@
+:root {
+  --background-color: black;
+}
+
 .nav-bar-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background-color: black;
-  border-top-right-radius: 30px;
-  flex: .83;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  flex: .8;
+}
+
+.nav-bar-inside-div-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 98%;
+  gap: 3em;
+  height: 95vh;
 }

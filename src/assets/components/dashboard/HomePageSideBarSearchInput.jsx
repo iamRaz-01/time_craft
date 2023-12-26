@@ -8,7 +8,7 @@ const HomePageSearchSideBarInput = () => {
           class="input"
           type="text"
           required=""
-          placeholder="Search twitter"
+          placeholder="Search your to do"
           id="search"
         />
         <div class="fancy-bg"></div>

@@ -15,8 +15,8 @@
 
 .status-card {
   width: 380px;
-  height: 250px;
-  border-radius: 40px;
+  height: 190px;
+  border-radius: 22px;
   display: flex;
   flex-direction: column;
   border-top-left-radius: 120px;
@@ -31,9 +31,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 50px;
-  margin-top: -20px;
-  margin-left: -20px;
-  border: 15px solid aliceblue;
+  box-shadow: 0 0 0 15px aliceblue;
   background-color: black;
   color: aliceblue;
 }

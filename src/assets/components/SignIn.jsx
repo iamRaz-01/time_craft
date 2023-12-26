@@ -27,7 +27,7 @@ const SignIn = ({ onPageChange }) => {
     return <Input key={index} properties={item}></Input>;
   });
 
-  const handleSingInValues = () => {
+  const handleSignInValues = () => {
     console.log(`${email} ${password}`);
     onPageChange();
   };
@@ -36,7 +36,7 @@ const SignIn = ({ onPageChange }) => {
     <div className="sign-up">
       <h1 className="signIn-head">Sign In</h1>
       {signInInputs}
-      <RegisterButton buttonFor="Sign In" registerAction={handleSingInValues} />
+      <RegisterButton buttonFor="Sign In" registerAction={handleSignInValues} />
     </div>
   );
 };

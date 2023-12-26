@@ -1,0 +1,46 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px;
+  flex: 4;
+  max-height: 14%;
+}
+
+.profile-div {
+  width: 40%;
+  display: flex;
+  justify-content: flex-end;
+  gap: 3%;
+}
+
+.time {
+  width: 100px;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-radius: 50px;
+}
+
+.profile-icon {
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: aliceblue;
+  border-radius: 50px;
+  background-color: black;
+}
+
+.profile-icon span {
+  font-size: 30px;
+}
+
+.profile-icon:hover {
+  border: 1px solid black;
+  color: black;
+  background-color: aliceblue;
+  cursor: pointer;
+}

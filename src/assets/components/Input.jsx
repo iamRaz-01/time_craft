@@ -1,3 +1,4 @@
+import "../css/sign.css";
 const Input = ({ properties }) => {
   return (
     <div className="input-div">
@@ -14,4 +15,15 @@ const Input = ({ properties }) => {
     </div>
   );
 };
-export { Input };
+
+const DropDown = (props) => {
+  return (
+    <div className="input-div">
+      <p> Give a Tag</p>
+      <select name={props.name}>
+        <option value=""> select </option>
+      </select>
+    </div>
+  );
+};
+export { Input, DropDown };

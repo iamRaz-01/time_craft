@@ -2,7 +2,6 @@ import "../css/sign.css";
 import { useState } from "react";
 import { Input } from "./Input";
 import { RegisterButton } from "./RegisterButton";
-
 const SignUp = ({ onPageChange }) => {
   const [username, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -45,17 +44,22 @@ const SignUp = ({ onPageChange }) => {
     console.log(`${email} ${password} ${username} ${confirmPassword}`);
     onPageChange();
   };
-  
 
   return (
-    <div className="sign-up">
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        // create();
+      }}
+      className="sign-up"
+    >
       <h1>Sign Up</h1>
       {inputs}
       <RegisterButton
         registerAction={handleSingUpValues}
         buttonFor="Sign Up"
       ></RegisterButton>
-    </div>
+    </form>
   );
 };
 

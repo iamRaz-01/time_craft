@@ -36,17 +36,23 @@ function AddTask() {
       event: a,
     },
   ];
-  let buttons = data.map((e) => {
+  const buttons = data.map((e) => {
     return <Input properties={e} />;
   });
 
+  const priorityOptions = [
+    { priority: 'Low', icon: 'fas fa-arrow-down text-success' },
+    { priority: 'Medium', icon: 'fas fa-arrow-right text-warning' },
+    { priority: 'High', icon: 'fas fa-arrow-up text-danger' },
+  ];
+  const tagOptions = ["New tag"]
   return (
     <div className="create-task-div">
       <form>
         <h2>New Task </h2>
         {buttons}
-        <DropDown />
-        <DropDown />
+        <DropDown dropDownFor="Select Tag" options={tagOptions}/>
+        <DropDown dropDownFor="Priority" options={priorityOptions}/>
         <RegisterButton buttonFor="Create"></RegisterButton>
       </form>
     </div>

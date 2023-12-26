@@ -1,4 +1,6 @@
 import "../css/sign.css";
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 const Input = ({ properties }) => {
   return (
     <div className="input-div">
@@ -16,14 +18,26 @@ const Input = ({ properties }) => {
   );
 };
 
-const DropDown = (props) => {
+const DropDown = ({ name, dropDownFor, options }) => {
   return (
     <div className="input-div">
-      <p> Give a Tag</p>
-      <select name={props.name}>
-        <option value=""> select </option>
+      <p>{dropDownFor}</p>
+      <select name={name}>
+        {dropDownFor === "Priority"
+          ? options.map((item) => (
+              <option key={item.priority} value={item.priority}>
+                <i className={item.icon}></i>
+                {item.priority}
+              </option>
+            ))
+          : options.map((item) => (
+              <option key={item} value={item}>
+                {item}
+              </option>
+            ))}
       </select>
     </div>
   );
 };
+
 export { Input, DropDown };

@@ -45,6 +45,7 @@ const SignUp = ({ onPageChange }) => {
     console.log(`${email} ${password} ${username} ${confirmPassword}`);
     onPageChange();
   };
+  
 
   return (
     <div className="sign-up">

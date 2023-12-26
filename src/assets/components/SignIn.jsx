@@ -3,7 +3,7 @@ import { RegisterButton } from "./RegisterButton";
 import "../css/sign.css";
 import { useState } from "react";
 
-const SignIn = () => {
+const SignIn = ({ onPageChange }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -29,6 +29,7 @@ const SignIn = () => {
 
   const handleSingInValues = () => {
     console.log(`${email} ${password}`);
+    onPageChange();
   };
 
   return (

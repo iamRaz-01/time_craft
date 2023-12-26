@@ -1,0 +1,15 @@
+#home-side-bar {
+  margin: 0;
+  padding: 0;
+  background-color: #010b13;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home-side-bar-inside-div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 99%;
+}

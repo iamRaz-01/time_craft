@@ -1,6 +1,18 @@
+:root {
+  --body-color: #f5f5f5;
+  --side-bar-background-color: #171717;
+  --side-bar-font-color: rgba(243, 244, 246, 1);
+  --side-bar-button-color: #e47b44;
+  --task-card-color: #ffffff;
+  --bending-task-color: #e47b44;
+  --completed-task-color: #71bea5;
+  --today-task-color: #5270f6;
+  --sign-icon-border:rgba(156, 163, 175, 1);
+}
+
 body {
   padding: 0px;
   margin: 0px;
-  background-color: aliceblue;
+  background-color: var(--body-color);
   font-family: "Noto Sans", sans-serif;
 }

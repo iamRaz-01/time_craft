@@ -1,9 +1,9 @@
 import "../../css/dashboard/taskstatus.css";
-function StatusCard(props) {
+function StatusCard({icon, idName}) {
   return (
     <div className="status-card">
-      <div>
-        <span class="material-symbols-outlined">{props.icon}</span>
+      <div className="task-card-icons-div">
+        <span class="material-symbols-outlined" id={idName}>{icon}</span>
       </div>
       <div className="status-content">
         <h1>30</h1>

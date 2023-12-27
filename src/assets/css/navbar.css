@@ -1,16 +1,13 @@
-:root {
-  --background-color: black;
-}
-
 .nav-bar-container {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background-color: var(--background-color);
+  background-color: var(--side-bar-background-color);
+  color: var(--side-bar-font-color);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  flex: .8;
+  flex: 0.8;
 }
 
 .nav-bar-inside-div-container {

@@ -29,9 +29,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: aliceblue;
+  color: var(--body-color);
   border-radius: 50px;
-  background-color: black;
+  background-color: var(--side-bar-background-color);
+  border: 1px solid transparent;
 }
 
 .profile-icon span {
@@ -39,8 +40,8 @@
 }
 
 .profile-icon:hover {
-  border: 1px solid black;
-  color: black;
-  background-color: aliceblue;
+  border: 1px solid var(--side-bar-background-color);
+  color: var(--side-bar-background-color);
+  background-color: var(--body-color);
   cursor: pointer;
 }

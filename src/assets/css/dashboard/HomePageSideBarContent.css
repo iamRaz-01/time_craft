@@ -48,7 +48,7 @@
   }
 
   &.clicked {
-    background-color: #ff8c00;
+    background-color: #e47b44;
     font-weight: 500;
   }
 }

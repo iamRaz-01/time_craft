@@ -1,18 +1,44 @@
+.signup-div-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100vh;
+}
+.singup-div-inside-div {
+  display: flex;
+  align-items: center;
+  width: 99%;
+  justify-content: center;
+}
+
 .sign-up {
-  width: 350px;
-  height: 420px;
-  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  background-color: var(--task-card-color);
+  width: 22%;
+}
+
+.sign-up-inside-div {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 3%;
-  border-radius: 20px;
+  gap: 0.8em;
+  width: 99%;
+  padding: 2em 1em;
+}
+
+.sign-head {
+  margin: 0;
+  padding: 0;
 }
 
 .sign-in {
-  width: 350px;
-  height: 270px;
-  background-color: aliceblue;
+  width: 95%;
+  height: auto;
+  background-color: var(--body-color);
 }
 
 .input-div {
@@ -22,22 +48,21 @@
   justify-content: center;
   align-items: center;
   gap: 3%;
-  /* border: 1px solid black; */
   border-radius: 10px;
-  background-color: white;
+  background-color: var(--body-color);
 }
 
 .input-div input {
   width: 80%;
   height: 70%;
-  border-radius: 10px;
   border: none;
   outline: none;
+  background-color: var(--body-color);
 }
 
 .input-div input:focus {
-  border-bottom: 1px solid black;
-  background-color: aliceblue;
+  background-color: var(--task-card-color);
+  border-radius: 4px;
 }
 
 .common-button {
@@ -47,23 +72,99 @@
   border: none;
   border-radius: 30px;
   font-size: 20px;
-  background-color: black;
-  color: aliceblue;
+  background-color: var(--side-bar-background-color);
+  color: var(--body-color);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .common-button:hover {
-  border: 2px solid black;
+  border: 2px solid var(--side-bar-background-color);
   background-color: white;
-  color: black;
+  color: var(--side-bar-background-color);
 }
 
 .input-div select {
   width: 70%;
   height: 30px;
   border-radius: 30px;
-  background-color: black;
-  color: aliceblue;
+  background-color: var(--side-bar-background-color);
+  color: var(--body-color);
+}
+
+.other-sign-options-div-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.other-sign-options-inside-div {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 99%;
+}
+.line {
+  height: 1px;
+  flex: 1 1 0%;
+  background-color: var(--sign-icon-border);
+}
+
+.other-sign-options-inside-div .message {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+  color: var(--sign-icon-border);
+}
+
+.social-account-div {
+  display: flex;
+  width: 90%;
+  align-items: center;
+}
+
+.social-icons-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  gap: 20%;
+}
+
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.8em;
+  height: 1.6em;
+  border-radius: 50%;
+  border-color: var(--sign-icon-border);
+  color: var(--side-bar-background-color);
+}
+
+.social-icons i {
+  margin: 0.2em;
+}
+.already-have-account-div {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  width: 100%;
+}
+.already-message-head {
+  color: var(--sign-icon-border);
+  font-size: 14px;
+}
+
+.sign-option-anger {
+  color: var(--side-bar-background-color);
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+}
+
+.sign-option-anger:hover {
+  text-decoration: underline;
 }

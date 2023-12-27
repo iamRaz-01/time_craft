@@ -11,7 +11,11 @@ function Dashboard() {
     <div className="dashboard">
       <NavBar />
       <div className="home-nav-and-body-content-div">
-        <Header onContentChange={() => setContentLayout(1)} />
+        <Header
+          onContentChange={() =>
+            setContentLayout((previous) => (previous === 1 ? 0 : 1))
+          }
+        />
         <HomeBodyContent contentLayout={contentLayout} />
       </div>
     </div>

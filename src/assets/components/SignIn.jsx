@@ -2,6 +2,7 @@ import { Input } from "./Input";
 import { RegisterButton } from "./RegisterButton";
 import "../css/sign.css";
 import { useState } from "react";
+import User from "../../api/User";
 
 const SignIn = ({ onPageChange }) => {
   const [email, setEmail] = useState("");
@@ -27,15 +28,29 @@ const SignIn = ({ onPageChange }) => {
     return <Input key={index} properties={item}></Input>;
   });
 
-  const handleSignInValues = () => {
-    console.log(`${email} ${password}`);
-    onPageChange();
+  async function handleSignInValues() {
+    const data = { email, password };
+    let user = new User();
+    let result = JSON.parse(await user.loginUser(data));
+    if (result.status === 500) {
+      alert(result.error);
+    } else {
+      let token = result.token;
+      sessionStorage.setItem('token', token)
+      alert('success')
+      onPageChange();
+
+
+    }
   };
 
   return (
     <div className="signup-div-container">
       <div className="singup-div-inside-div">
-        <form className="sign-up">
+        <form className="sign-up" onSubmit={(e) => {
+          e.preventDefault();
+          handleSignInValues();
+        }}>
           <div className="sign-up-inside-div">
             <h1 className="sign-head">Sign In</h1>
             {signInInputs}

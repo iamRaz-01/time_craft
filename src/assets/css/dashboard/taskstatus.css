@@ -30,6 +30,8 @@
   width: 100%;
   background-color: #fff;
   border-radius: 0px 30px 0px 0px;
+  border-top-left-radius: 34em;
+  border-top-right-radius: 20em;
 }
 
 .status-card span {

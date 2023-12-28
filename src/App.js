@@ -1,4 +1,3 @@
-// import { SignUp } from "./assets/components/SignUp.jsx";
 import { Dashboard } from "./assets/components/dashboard/Dashboard.jsx";
 import "./assets/css/app.css";
 import { useState } from "react";

@@ -1,8 +1,11 @@
+import { useState } from "react";
 import "../../css/dashboard/addtask.css";
 import { Input, DropDown } from "../Input";
 import { RegisterButton } from "../RegisterButton";
 
 function AddTask() {
+  const [newTaskTag, setNewTaskTag] = useState(null);
+
   const a = () => {
     alert("hi");
   };
@@ -41,18 +44,26 @@ function AddTask() {
   });
 
   const priorityOptions = [
-    { priority: 'Low', icon: 'bi bi-brightness-alt-high' },
-    { priority: 'Medium', icon: 'bi bi-brightness-alt-high-fill' },
-    { priority: 'High', icon: 'bi bi-brightness-high-fill' },
+    { priority: "Low", icon: "bi bi-brightness-alt-high" },
+    { priority: "Medium", icon: "bi bi-brightness-alt-high-fill" },
+    { priority: "High", icon: "bi bi-brightness-high-fill" },
   ];
-  const tagOptions = ["New tag"]
+  const tagOptions = ["Create new Tag"];
   return (
     <div className="create-task-div">
       <form>
         <h2>New Task </h2>
         {buttons}
-        <DropDown dropDownFor="Select Tag" options={tagOptions}/>
-        <DropDown dropDownFor="Priority" options={priorityOptions}/>
+        <DropDown
+          dropDownFor="Select Tag"
+          options={tagOptions}
+          setNewTaskTag={setNewTaskTag}
+        />
+        <DropDown
+          dropDownFor="Select Tag"
+          options={priorityOptions}
+          setNewTaskTag={setNewTaskTag}
+        />
         <RegisterButton buttonFor="Create"></RegisterButton>
       </form>
     </div>

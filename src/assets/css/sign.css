@@ -168,3 +168,12 @@
 .sign-option-anger:hover {
   text-decoration: underline;
 }
+.select {
+  display: flex;
+  align-items: center;
+}
+.options {
+  display: flex;
+  align-items: center;
+  gap: 5%;
+}

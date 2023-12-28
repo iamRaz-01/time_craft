@@ -5,6 +5,7 @@
   flex: 1;
   height: 100vh;
 }
+
 .singup-div-inside-div {
   display: flex;
   align-items: center;
@@ -105,6 +106,7 @@
   flex-direction: column;
   width: 99%;
 }
+
 .line {
   height: 1px;
   flex: 1 1 0%;
@@ -147,12 +149,14 @@
 .social-icons i {
   margin: 0.2em;
 }
+
 .already-have-account-div {
   display: flex;
   align-content: center;
   justify-content: center;
   width: 100%;
 }
+
 .already-message-head {
   color: var(--sign-icon-border);
   font-size: 14px;

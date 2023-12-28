@@ -6,6 +6,7 @@ function AddTask() {
   const a = () => {
     alert("hi");
   };
+  console.log(sessionStorage.getItem('token'))
   let data = [
     {
       type: "text",
@@ -50,9 +51,9 @@ function AddTask() {
     <div className="create-task-div">
       <form>
         <h2>New Task </h2>
+        <DropDown dropDownFor="Select Tag" options={tagOptions} />
         {buttons}
-        <DropDown dropDownFor="Select Tag" options={tagOptions}/>
-        <DropDown dropDownFor="Priority" options={priorityOptions}/>
+        <DropDown dropDownFor="Priority" options={priorityOptions} />
         <RegisterButton buttonFor="Create"></RegisterButton>
       </form>
     </div>

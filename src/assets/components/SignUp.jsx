@@ -2,6 +2,7 @@ import "../css/sign.css";
 import { useState } from "react";
 import { Input } from "./Input";
 import { RegisterButton } from "./RegisterButton";
+import User from "../../api/User";
 const SignUp = ({ onPageChange }) => {
   const [username, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -39,20 +40,32 @@ const SignUp = ({ onPageChange }) => {
   const inputs = data.map((item, index) => (
     <Input key={index} properties={item} title={item.title} />
   ));
+  async function handleSingUpValues() {
+    if (password !== confirmPassword) alert("password doesn't matching");
+    else {
+      const data = { username, email, password };
+      let user = new User();
+      let result = JSON.parse(await user.createUser(data));
+      if (result.status === 500) {
+        alert(result.error);
 
-  const handleSingUpValues = () => {
-    onPageChange();
+      }
+      // onPageChange();
+    }
   };
 
   return (
     <div className="signup-div-container">
       <div className="singup-div-inside-div">
-        <form className="sign-up">
+        <form className="sign-up" onSubmit={async (e) => {
+          e.preventDefault();
+          handleSingUpValues();
+        }}>
           <div className="sign-up-inside-div">
             <h1 className="sign-head">Sign Up</h1>
             {inputs}
             <RegisterButton
-              registerAction={handleSingUpValues}
+
               buttonFor="Sign Up"
             ></RegisterButton>
 

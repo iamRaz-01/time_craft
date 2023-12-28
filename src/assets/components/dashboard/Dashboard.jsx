@@ -3,7 +3,7 @@ import { Header } from "./Header";
 import { NavBar } from "../NavBar.jsx";
 import { HomeBodyContent } from "../HomeBodyContent.jsx";
 import { useState } from "react";
-import "bootstrap-icons/font/bootstrap-icons.css";
+//import "bootstrap-icons/font/bootstrap-icons.css";
 function Dashboard() {
   const [contentLayout, setContentLayout] = useState(0);
 

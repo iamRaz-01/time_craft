@@ -48,7 +48,6 @@ const SignUp = ({ onPageChange }) => {
       let result = JSON.parse(await user.createUser(data));
       if (result.status === 500) {
         alert(result.error);
-
       }
       // onPageChange();
     }

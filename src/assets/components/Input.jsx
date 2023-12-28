@@ -1,5 +1,4 @@
 import "../css/sign.css";
-//import "@fortawesome/fontawesome-free/css/all.min.css";
 
 const Input = ({ properties }) => {
   return (
@@ -25,16 +24,17 @@ const DropDown = ({ name, dropDownFor, options }) => {
       <select name={name}>
         {dropDownFor === "Priority"
           ? options.map((item) => (
-            <option key={item.priority} value={item.priority}>
-              <i className={item.icon}></i>
-              {item.priority}
-            </option>
-          ))
+              <option key={item.priority} value={item.priority}>
+                <i className={item.icon}></i>
+                <span>{item.priority}</span>
+              </option>
+            ))
           : options.map((item) => (
-            <option key={item} value={item}>
-              {item}
-            </option>
-          ))}
+              <option key={item} value={item}>
+                <span className="material-icons-outlined">library_add</span>
+                {item}
+              </option>
+            ))}
       </select>
     </div>
   );

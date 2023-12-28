@@ -41,9 +41,9 @@ function AddTask() {
   });
 
   const priorityOptions = [
-    { priority: 'Low', icon: 'fas fa-arrow-down text-success' },
-    { priority: 'Medium', icon: 'fas fa-arrow-right text-warning' },
-    { priority: 'High', icon: 'fas fa-arrow-up text-danger' },
+    { priority: 'Low', icon: 'bi bi-brightness-alt-high' },
+    { priority: 'Medium', icon: 'bi bi-brightness-alt-high-fill' },
+    { priority: 'High', icon: 'bi bi-brightness-high-fill' },
   ];
   const tagOptions = ["New tag"]
   return (

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Input } from "./Input";
 import { RegisterButton } from "./RegisterButton";
 import User from "../../api/User";
-const { createCanvas } = require("canvas");
+// const { createCanvas } = require("canvas");
 const SignUp = ({ onPageChange }) => {
   const [username, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -51,34 +51,34 @@ const SignUp = ({ onPageChange }) => {
     return color;
   }
 
-  function createAvatar(username, size = 200, fontSize = 100) {
-    const canvas = createCanvas(size, size);
-    const context = canvas.getContext("2d");
+  // function createAvatar(username, size = 200, fontSize = 100) {
+  //   const canvas = createCanvas(size, size);
+  //   const context = canvas.getContext("2d");
 
-    // Generate a random background color
-    const backgroundColor = getRandomColor();
+  //   // Generate a random background color
+  //   const backgroundColor = getRandomColor();
 
-    // Set background color
-    context.fillStyle = backgroundColor;
-    context.fillRect(0, 0, size, size);
+  //   // Set background color
+  //   context.fillStyle = backgroundColor;
+  //   context.fillRect(0, 0, size, size);
 
-    // Set text color and font
-    context.fillStyle = "#fff";
-    context.font = `${fontSize}px Arial`;
+  //   // Set text color and font
+  //   context.fillStyle = "#fff";
+  //   context.font = `${fontSize}px Arial`;
 
-    // Calculate text position to center it
-    const textWidth = context.measureText(username).width;
-    const x = (size - textWidth) / 2;
-    const y = size / 2 + fontSize / 3;
+  //   // Calculate text position to center it
+  //   const textWidth = context.measureText(username).width;
+  //   const x = (size - textWidth) / 2;
+  //   const y = size / 2 + fontSize / 3;
 
-    // Draw the username on the canvas
-    context.fillText(username.charAt(0).toUpperCase(), x, y);
+  //   // Draw the username on the canvas
+  //   context.fillText(username.charAt(0).toUpperCase(), x, y);
 
-    // Convert canvas to data URL
-    const dataUrl = canvas.toDataURL();
+  //   // Convert canvas to data URL
+  //   const dataUrl = canvas.toDataURL();
 
-    return dataUrl;
-  }
+  //   return dataUrl;
+  // }
 
   async function handleSignUpValues() {
     onPageChange();

@@ -3,12 +3,19 @@ import { useState } from "react";
 import { Input } from "./Input";
 import { RegisterButton } from "./RegisterButton";
 import User from "../../api/User";
-// const { createCanvas } = require("canvas");
-const SignUp = ({ onPageChange }) => {
+import { useNavigate } from "react-router-dom";
+ const { createCanvas } = require("canvas");
+const SignUp = () => {
   const [username, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handlePageChange = () => {
+    navigate("/signin");
+  };
+  
   let data = [
     {
       type: "text",
@@ -51,78 +58,77 @@ const SignUp = ({ onPageChange }) => {
     return color;
   }
 
-  // function createAvatar(username, size = 200, fontSize = 100) {
-  //   const canvas = createCanvas(size, size);
-  //   const context = canvas.getContext("2d");
+  function createAvatar(username, size = 200, fontSize = 100) {
+    const canvas = createCanvas(size, size);
+    const context = canvas.getContext("2d");
 
-  //   // Generate a random background color
-  //   const backgroundColor = getRandomColor();
+    // Generate a random background color
+    const backgroundColor = getRandomColor();
 
-  //   // Set background color
-  //   context.fillStyle = backgroundColor;
-  //   context.fillRect(0, 0, size, size);
+    // Set background color
+    context.fillStyle = backgroundColor;
+    context.fillRect(0, 0, size, size);
 
-  //   // Set text color and font
-  //   context.fillStyle = "#fff";
-  //   context.font = `${fontSize}px Arial`;
+    // Set text color and font
+    context.fillStyle = "#fff";
+    context.font = `${fontSize}px Arial`;
 
-  //   // Calculate text position to center it
-  //   const textWidth = context.measureText(username).width;
-  //   const x = (size - textWidth) / 2;
-  //   const y = size / 2 + fontSize / 3;
+    // Calculate text position to center it
+    const textWidth = context.measureText(username).width;
+    const x = (size - textWidth) / 2;
+    const y = size / 2 + fontSize / 3;
 
-  //   // Draw the username on the canvas
-  //   context.fillText(username.charAt(0).toUpperCase(), x, y);
+    // Draw the username on the canvas
+    context.fillText(username.charAt(0).toUpperCase(), x, y);
 
-  //   // Convert canvas to data URL
-  //   const dataUrl = canvas.toDataURL();
+    // Convert canvas to data URL
+    const dataUrl = canvas.toDataURL();
 
-  //   return dataUrl;
-  // }
+    return dataUrl;
+  }
 
   async function handleSignUpValues() {
-    onPageChange();
     // Validate name
-    // if (!username || /^\s*$/.test(username)) {
-    //   alert("Please enter a valid name.");
-    //   return;
-    // }
+    if (!username || /^\s*$/.test(username)) {
+      alert("Please enter a valid name.");
+      return;
+    }
 
-    // // Validate email
-    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    // if (!email || !emailRegex.test(email)) {
-    //   alert("Please enter a valid email address.");
-    //   return;
-    // }
+    // Validate email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      alert("Please enter a valid email address.");
+      return;
+    }
 
-    // // Validate password
-    // if (!password || password.length < 8) {
-    //   alert("Password must be at least 8 characters long.");
-    //   return;
-    // }
+    // Validate password
+    if (!password || password.length < 8) {
+      alert("Password must be at least 8 characters long.");
+      return;
+    }
 
-    // // Check if password and confirmPassword match
-    // if (password !== confirmPassword) {
-    //   alert("Passwords don't match.");
-    //   return;
-    // }
+    // Check if password and confirmPassword match
+    if (password !== confirmPassword) {
+      alert("Passwords don't match.");
+      return;
+    }
 
-    // const profileImage = createAvatar(username);
-    // const data = { username, email, password, profile_image: profileImage };
-    // let user = new User();
+    const profileImage = createAvatar(username);
+    const data = { username, email, password, profile_image: profileImage };
+    let user = new User();
 
-    // try {
-    //   let result = await user.createUser(data);
+    try {
+      let result = await user.createUser(data);
 
-    //   if (result.status === 500) {
-    //     alert(result.error);
-    //   } else {
-    //     onPageChange();
-    //   }
-    // } catch (error) {
-    //   console.error("Error creating user:", error);
-    //   alert("An unexpected error occurred.");
-    // }
+      if (result.status === 500) {
+        alert(result.error);
+      } else {
+        handlePageChange();
+      }
+    } catch (error) {
+      console.error("Error creating user:", error);
+      alert("An unexpected error occurred.");
+    }
   }
 
   return (
@@ -162,7 +168,12 @@ const SignUp = ({ onPageChange }) => {
                 <div className="already-have-account-div">
                   <p className="already-message-head">
                     Already have an account?
-                    <span className="sign-option-anger"> Sign In</span>
+                    <span
+                      className="sign-option-anger"
+                      onClick={handlePageChange}
+                    >
+                      Sign In
+                    </span>
                   </p>
                 </div>
               </div>

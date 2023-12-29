@@ -18,64 +18,26 @@ const Input = ({ properties }) => {
   );
 };
 
-const DropDown = ({ name, dropDownFor, options, setNewTaskTag }) => {
-  const [creatingNewTag, setCreatingNewTag] = useState(false);
-  const [newTagName, setNewTagName] = useState("");
-
-  const handleCreateNewTag = () => {
-    setCreatingNewTag(true);
-  };
-
-  const handleBlur = () => {
-    setCreatingNewTag(false);
-    if (newTagName) {
-      setNewTaskTag(newTagName);
-    }
-    setNewTagName(""); 
-  };
-
-  const handleInputChange = (e) => {
-    setNewTagName(e.target.value);
-  };
-
+const DropDown = ({ name, dropDownFor, options }) => {
   return (
     <div className="input-div">
       <p>{dropDownFor}</p>
-
-      <select name={name} className="select">
-        {options.map((item) => (
-          <option
-            key={item.priority || item}
-            value={item.priority || item}
-            className="options"
-          >
-            {item.priority && <i className={item.icon}></i>}
-            <span className="tag-content-span">{item.priority || item}</span>
-          </option>
-        ))}
-        <option
-          value="create new tag"
-          className="options"
-          onClick={() => handleCreateNewTag()}
-        >
-          Create New Tag
-        </option>
-        {creatingNewTag && (
-          <div>
-            <input
-              type="text"
-              name={name}
-              className="select"
-              placeholder="Enter new tag"
-              value={newTagName}
-              onChange={handleInputChange}
-            />
-            <button onClick={handleBlur}>OK</button>
-          </div>
-        )}
+      <select name={name}>
+        {dropDownFor === "Priority"
+          ? options.map((item) => (
+              <option key={item.priority} value={item.priority}>
+                <i className={item.icon}></i>
+                <span>{item.priority}</span>
+              </option>
+            ))
+          : options.map((item) => (
+              <option key={item} value={item}>
+                <span className="material-icons-outlined">library_add</span>
+                {item}
+              </option>
+            ))}
       </select>
     </div>
   );
 };
-
 export { Input, DropDown };

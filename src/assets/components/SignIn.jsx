@@ -48,7 +48,6 @@ const SignIn = () => {
       alert(result.error);
     } else {
       let token = result.token;
-      console.log(token);
       sessionStorage.setItem("token", token);
       alert("success");
       handlePageChange();

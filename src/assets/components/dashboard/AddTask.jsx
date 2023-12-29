@@ -1,14 +1,24 @@
 import { useState } from "react";
 import "../../css/dashboard/addtask.css";
-import { Input, DropDown } from "../Input";
+import { Input } from "../Input";
 import { RegisterButton } from "../RegisterButton";
+import { DropDown } from "../DropDwon.jsx";
 
 function AddTask() {
   const [taskTitle, setTaskTitle] = useState(null);
   const [taskDescription, setTaskDescription] = useState(null);
   const [taskDate, setTaskDate] = useState(null);
   const [taskTime, setTaskTime] = useState(null);
+  const [openTagOptions, setOpenTagOptions] = useState(false);
+  const [openPriorityOptions, setPriorityOptions] = useState(false);
 
+  const handleOpenPriorityOptions = () => {
+    setPriorityOptions((prevOptions) => !prevOptions);
+  };
+
+  const handleOpenTagOptions = () => {
+    setOpenTagOptions((prevOptions) => !prevOptions);
+  };
   let data = [
     {
       type: "text",
@@ -44,22 +54,17 @@ function AddTask() {
   });
 
   const priorityOptions = [
-    { priority: "Low", icon: "bi bi-brightness-alt-high" },
-    { priority: "Medium", icon: "bi bi-brightness-alt-high-fill" },
-    { priority: "High", icon: "bi bi-brightness-high-fill" },
+    { tag: "Low", icon: "bi bi-brightness-alt-high" },
+    { tag: "Medium", icon: "bi bi-brightness-alt-high-fill" },
+    { tag: "High", icon: "bi bi-brightness-high-fill" },
   ];
 
-  const tagOptions = ["New tag"];
+  const tagOptions = [];
 
   const handleTaskCreation = (event) => {
     event.preventDefault();
 
-    const tagValue = event.target.elements.tagDropdown.value;
-    const priorityValue = event.target.elements.priorityDropdown.value;
-
-    console.log(
-      `${taskTitle}  ${taskDescription} ${taskDate} ${taskTime} ${tagValue} ${priorityValue}`
-    );
+    console.log(`${taskTitle}  ${taskDescription} ${taskDate} ${taskTime}`);
   };
 
   return (
@@ -67,15 +72,17 @@ function AddTask() {
       <form onSubmit={handleTaskCreation}>
         <h2>New Task </h2>
         <DropDown
-          name="tagDropdown"
           dropDownFor="Select Tag"
           options={tagOptions}
+          isOpen={openTagOptions}
+          openOptions={handleOpenTagOptions}
         />
         {buttons}
         <DropDown
-          name="priorityDropdown"
           dropDownFor="Priority"
           options={priorityOptions}
+          openOptions={handleOpenPriorityOptions}
+          isOpen={openPriorityOptions}
         />
         <RegisterButton buttonFor="Create" type="submit"></RegisterButton>
       </form>

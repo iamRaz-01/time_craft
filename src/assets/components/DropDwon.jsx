@@ -1,6 +1,35 @@
+import { useState } from "react";
 import "../css/DropDown.css";
 
-const DropDown = ({ dropDownFor, options, isOpen, openOptions }) => {
+const DropDown = ({
+  dropDownFor,
+  options,
+  isOpen,
+  openOptions,
+  hangleSelectedTagOption,
+  handleSelectedPriorityOption,
+}) => {
+  const [tagValue, setTagValue] = useState("");
+  const [priorityValue, setPriorityValue] = useState("");
+
+  const handleSetTagValue = (value) => {
+    setTagValue(value);
+  };
+
+  const handleSetPriorityValue = (value) => {
+    setPriorityValue(value);
+  };
+
+  const handleItemClick = (item) => {
+    if (dropDownFor === "Select a Tag") {
+      handleSetTagValue(item.tag);
+      hangleSelectedTagOption(item.tag);
+    } else {
+      handleSetPriorityValue(item.tag);
+      handleSelectedPriorityOption(item.tag);
+    }
+    openOptions();
+  };
   return (
     <div className="tag-details-showing-div">
       <div className="tag-details-showing-inside-div">
@@ -9,9 +38,14 @@ const DropDown = ({ dropDownFor, options, isOpen, openOptions }) => {
         </div>
         <div className="custom-dropdown-div">
           <div className="custom-dropdown">
-            <input type="text" placeholder="Select a tag" />
+            <input
+              type="text"
+              placeholder="Select a tag"
+              value={dropDownFor === "Select a Tag" ? tagValue : priorityValue}
+              readOnly
+            />
             <span className="dropdown-icon" onClick={openOptions}>
-              &#9660;
+              {isOpen ? "▲" : "▼"}
             </span>
           </div>
           {/* drop down options */}
@@ -39,9 +73,13 @@ const DropDown = ({ dropDownFor, options, isOpen, openOptions }) => {
                   <div className="tag-options-showing-inside-div">
                     {options.length > 0 ? (
                       options.map((item, index) => (
-                        <div className="options-div" key={index}>
+                        <div
+                          className="options-div"
+                          key={index}
+                          onClick={() => handleItemClick(item)}
+                        >
                           <div className="options-inside-div">
-                            <i className={item.icon}></i>{" "}
+                            <i className={item.icon}></i>
                             <p className="options-para">{item.tag}</p>
                           </div>
                         </div>
@@ -56,7 +94,7 @@ const DropDown = ({ dropDownFor, options, isOpen, openOptions }) => {
                 <div className="create-new-tag-div-container">
                   <div className="create-new-tag-inside-div">
                     <p className="create-new-tag-para">
-                      <i class="bi bi-pencil"></i>Create custom Tag
+                      <i className="bi bi-pencil"></i>Create custom Tag
                     </p>
                   </div>
                 </div>

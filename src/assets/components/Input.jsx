@@ -17,25 +17,4 @@ const Input = ({ properties }) => {
   );
 };
 
-const DropDown = ({ name, dropDownFor, options }) => {
-  return (
-    <div className="input-div">
-      <p>{dropDownFor}</p>
-      <select name={name}>
-        {dropDownFor === "Priority"
-          ? options.map((item, index) => (
-              <option key={index} value={item.priority}>
-                {item.priority}
-              </option>
-            ))
-          : options.map((item, index) => (
-              <option key={index} value={item}>
-                {item}
-              </option>
-            ))}
-      </select>
-    </div>
-  );
-};
-
-export { Input, DropDown };
+export { Input };

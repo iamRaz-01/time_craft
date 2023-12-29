@@ -9,16 +9,25 @@ function AddTask() {
   const [taskDescription, setTaskDescription] = useState(null);
   const [taskDate, setTaskDate] = useState(null);
   const [taskTime, setTaskTime] = useState(null);
+  const [selectedTagOptoin, setSelectedTagOption] = useState(null);
+  const [selectedPriorityOption, setSelectedPriorityOption] = useState(null);
   const [openTagOptions, setOpenTagOptions] = useState(false);
   const [openPriorityOptions, setPriorityOptions] = useState(false);
 
   const handleOpenPriorityOptions = () => {
     setPriorityOptions((prevOptions) => !prevOptions);
+    if (openTagOptions === true) {
+      setOpenTagOptions(false);
+    }
   };
 
   const handleOpenTagOptions = () => {
     setOpenTagOptions((prevOptions) => !prevOptions);
+    if (openPriorityOptions === true) {
+      setPriorityOptions(false);
+    }
   };
+
   let data = [
     {
       type: "text",
@@ -64,7 +73,7 @@ function AddTask() {
   const handleTaskCreation = (event) => {
     event.preventDefault();
 
-    console.log(`${taskTitle}  ${taskDescription} ${taskDate} ${taskTime}`);
+    console.log(`${taskTitle}  ${taskDescription} ${taskDate} ${taskTime} ${selectedTagOptoin} ${selectedPriorityOption}`);
   };
 
   return (
@@ -72,10 +81,11 @@ function AddTask() {
       <form onSubmit={handleTaskCreation}>
         <h2>New Task </h2>
         <DropDown
-          dropDownFor="Select Tag"
+          dropDownFor="Select a Tag"
           options={tagOptions}
           isOpen={openTagOptions}
           openOptions={handleOpenTagOptions}
+          hangleSelectedTagOption={setSelectedTagOption}
         />
         {buttons}
         <DropDown
@@ -83,6 +93,7 @@ function AddTask() {
           options={priorityOptions}
           openOptions={handleOpenPriorityOptions}
           isOpen={openPriorityOptions}
+          handleSelectedPriorityOption={setSelectedPriorityOption}
         />
         <RegisterButton buttonFor="Create" type="submit"></RegisterButton>
       </form>

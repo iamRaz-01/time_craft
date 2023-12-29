@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../css/DropDown.css";
+import "../../css/addTask/DropDown.css"
 
 const DropDown = ({
   dropDownFor,
@@ -11,6 +11,28 @@ const DropDown = ({
 }) => {
   const [tagValue, setTagValue] = useState("");
   const [priorityValue, setPriorityValue] = useState("");
+  const [editing, setEditing] = useState(false);
+  const [editTagValue, setEditTagValue] = useState("");
+
+  const handleTagClick = () => {
+    setEditing(true);
+  };
+
+  const handleInputChange = (e) => {
+    setEditTagValue(e.target.value);
+  };
+
+  const handleInputBlur = () => {
+    setEditing(false);
+  };
+
+  const handleEnterKeyPress = (e) => {
+    if (e.key === "Enter") {
+      setTagValue(editTagValue);
+      setEditTagValue("");
+      setEditing(false);
+    }
+  };
 
   const handleSetTagValue = (value) => {
     setTagValue(value);
@@ -92,11 +114,29 @@ const DropDown = ({
 
                 {/* create custom tag */}
                 <div className="create-new-tag-div-container">
-                  <div className="create-new-tag-inside-div">
-                    <p className="create-new-tag-para">
-                      <i className="bi bi-pencil"></i>Create custom Tag
-                    </p>
-                  </div>
+                  {editing ? (
+                    <div className="create-new-tag-inside-div">
+                      <input
+                        id="tag-creation-input"
+                        type="text"
+                        placeholder="Enter tag name"
+                        value={editTagValue}
+                        onChange={handleInputChange}
+                        onBlur={handleInputBlur}
+                        onKeyPress={handleEnterKeyPress}
+                        autoFocus
+                      />
+                    </div>
+                  ) : (
+                    <div
+                      className="create-new-tag-inside-div"
+                      onDoubleClick={handleTagClick}
+                    >
+                      <p className="create-new-tag-para">
+                        <i className="bi bi-pencil"></i> Create custom Tag
+                      </p>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

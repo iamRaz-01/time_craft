@@ -1,10 +1,10 @@
 import { useState } from "react";
-import "../../css/dashboard/addtask.css";
-import { Input } from "../Input";
-import { RegisterButton } from "../RegisterButton";
-import { DropDown } from "../DropDwon.jsx";
+import "../../css/addTask/createTask.css";
+import { Input } from "../Input.jsx";
+import { RegisterButton } from "../RegisterButton.jsx";
+import { DropDown } from "./DropDwon.jsx";
 
-function AddTask() {
+function CreateTask() {
   const [taskTitle, setTaskTitle] = useState(null);
   const [taskDescription, setTaskDescription] = useState(null);
   const [taskDate, setTaskDate] = useState(null);
@@ -58,8 +58,8 @@ function AddTask() {
       event: setTaskTime,
     },
   ];
-  const buttons = data.map((e) => {
-    return <Input properties={e} />;
+  const buttons = data.map((item) => {
+    return <Input properties={item} />;
   });
 
   const priorityOptions = [
@@ -73,7 +73,9 @@ function AddTask() {
   const handleTaskCreation = (event) => {
     event.preventDefault();
 
-    console.log(`${taskTitle}  ${taskDescription} ${taskDate} ${taskTime} ${selectedTagOptoin} ${selectedPriorityOption}`);
+    console.log(
+      `${taskTitle}  ${taskDescription} ${taskDate} ${taskTime} ${selectedTagOptoin} ${selectedPriorityOption}`
+    );
   };
 
   return (
@@ -101,4 +103,4 @@ function AddTask() {
   );
 }
 
-export { AddTask };
+export { CreateTask };

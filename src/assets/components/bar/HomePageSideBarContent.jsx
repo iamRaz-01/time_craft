@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../../css/dashboard/HomePageSideBarContent.css";
+import "../../css/bar/HomePageSideBarContent.css";
 const sidebarContent = [
   { content: "Dashboard", icon: "bi bi-house-door" },
   { content: "Schedule", icon: "bi bi-calendar2-minus" },

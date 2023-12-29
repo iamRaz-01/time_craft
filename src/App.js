@@ -8,6 +8,7 @@ import {
 import { Dashboard } from "./assets/components/dashboard/Dashboard.jsx";
 import { SignIn } from "./assets/components/SignIn.jsx";
 import { SignUp } from "./assets/components/SignUp.jsx";
+import { AddTask } from "./assets/components/addTask/AddTask.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/dashboard" element={<AddTask />} />
         <Route index element={<Navigate to="/signup" />} />
       </Routes>
     </Router>

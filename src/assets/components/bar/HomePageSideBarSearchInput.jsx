@@ -1,4 +1,4 @@
-import "../../css/dashboard/HomePageSideBarSearchInput.css";
+import "../../css/bar/HomePageSideBarSearchInput.css";
 
 const HomePageSearchSideBarInput = () => {
   return (
@@ -13,7 +13,7 @@ const HomePageSearchSideBarInput = () => {
         />
         <div className="fancy-bg"></div>
         <div className="search">
-          <svg 
+          <svg
             viewBox="0 0 24 24"
             aria-hidden="true"
             className="r-14j79pv r-4qtqp9 r-yyyyoo r-1xvli5t r-dnmrzs r-4wgw6l r-f727ji r-bnwqim r-1plcrui r-lrvibr"

@@ -1,22 +1,15 @@
 import "../../css/dashboard/dashboard.css";
-import { Header } from "./Header";
-import { NavBar } from "../NavBar.jsx";
-import { HomeBodyContent } from "../HomeBodyContent.jsx";
-import { useState } from "react";
-//import "bootstrap-icons/font/bootstrap-icons.css";
-function Dashboard() {
-  const [contentLayout, setContentLayout] = useState(0);
+import { Header } from "../bar/Header.jsx";
+import { NavBar } from "../bar/NavBar.jsx";
+import { HomeBodyContent } from "./HomeBodyContent.jsx";
 
+function Dashboard() {
   return (
     <div className="dashboard">
       <NavBar />
       <div className="home-nav-and-body-content-div">
-        <Header
-          onContentChange={() =>
-            setContentLayout((previous) => (previous === 1 ? 0 : 1))
-          }
-        />
-        <HomeBodyContent contentLayout={contentLayout} />
+        <Header />
+        <HomeBodyContent />
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-import "../../css/dashboard/Taskbutton.css";
+import "../../css/bar/Taskbutton.css";
 
 const Taskbutton = ({ icon, text, onContentChange }) => {
   const handleButtonClick = () => {

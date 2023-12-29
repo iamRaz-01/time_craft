@@ -1,5 +1,5 @@
 import "../../css/dashboard/taskstatus.css";
-import { StatusCard } from "./StatusCard";
+import { StatusCard } from "./StatusCard.jsx";
 const TaskStatus = () => {
   return (
     <div className="task-status-container">

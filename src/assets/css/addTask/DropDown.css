@@ -193,3 +193,11 @@
   padding: 4px;
   gap: 8px;
 }
+
+#tag-creation-input {
+  width: 99%;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #515151;
+  height: 1.4em;
+}

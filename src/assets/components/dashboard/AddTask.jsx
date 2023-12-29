@@ -1,39 +1,42 @@
+import { useState } from "react";
 import "../../css/dashboard/addtask.css";
 import { Input, DropDown } from "../Input";
 import { RegisterButton } from "../RegisterButton";
 
 function AddTask() {
-  const a = () => {
-    alert("hi");
-  };
+  const [taskTitle, setTaskTitle] = useState(null);
+  const [taskDescription, setTaskDescription] = useState(null);
+  const [taskDate, setTaskDate] = useState(null);
+  const [taskTime, setTaskTime] = useState(null);
+
   let data = [
     {
       type: "text",
-      title: "",
+      title: "Enter the task title",
       icon: "add_task",
-      place: "Enter the title",
-      event: a,
+      place: "Enter task title",
+      event: setTaskTitle,
     },
     {
       type: "text",
-      title: "",
+      title: "Enter the task description",
       icon: "description",
-      place: "Description",
-      event: a,
+      place: "Description about the task",
+      event: setTaskDescription,
     },
     {
       type: "date",
-      title: "",
+      title: "Enter the task complete date",
       icon: "calendar_month",
-      place: "",
-      event: a,
+      place: "Enter the task Date",
+      event: setTaskDate,
     },
     {
-      type: "text",
-      title: "",
+      type: "time",
+      title: "Enter the task time",
       icon: "timer",
-      place: "  ",
-      event: a,
+      place: "Enter the task time",
+      event: setTaskTime,
     },
   ];
   const buttons = data.map((e) => {
@@ -45,15 +48,36 @@ function AddTask() {
     { priority: "Medium", icon: "bi bi-brightness-alt-high-fill" },
     { priority: "High", icon: "bi bi-brightness-high-fill" },
   ];
+
   const tagOptions = ["New tag"];
+
+  const handleTaskCreation = (event) => {
+    event.preventDefault();
+
+    const tagValue = event.target.elements.tagDropdown.value;
+    const priorityValue = event.target.elements.priorityDropdown.value;
+
+    console.log(
+      `${taskTitle}  ${taskDescription} ${taskDate} ${taskTime} ${tagValue} ${priorityValue}`
+    );
+  };
+
   return (
     <div className="create-task-div">
-      <form>
+      <form onSubmit={handleTaskCreation}>
         <h2>New Task </h2>
+        <DropDown
+          name="tagDropdown"
+          dropDownFor="Select Tag"
+          options={tagOptions}
+        />
         {buttons}
-        <DropDown dropDownFor="Select Tag" options={tagOptions} />
-        <DropDown dropDownFor="Priority" options={priorityOptions} />
-        <RegisterButton buttonFor="Create"></RegisterButton>
+        <DropDown
+          name="priorityDropdown"
+          dropDownFor="Priority"
+          options={priorityOptions}
+        />
+        <RegisterButton buttonFor="Create" type="submit"></RegisterButton>
       </form>
     </div>
   );

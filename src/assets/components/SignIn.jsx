@@ -39,55 +39,51 @@ const SignIn = () => {
     return <Input key={index} properties={item}></Input>;
   });
 
-  async function handleSignInValues() {
-    // const data = { email, password };
-    // let user = new User();
-    // let result = JSON.parse(await user.loginUser(data));
-    // if (result.status === 500) {
-    //   alert(result.error);
-    // } else {
-    //   let token = result.token;
-    //   sessionStorage.setItem('token', token)
-    //   alert('success')
-    handlePageChange();
-    // }
+  async function handleSignInValues(event) {
+    event.preventDefault();
+    const data = { email, password };
+    let user = new User();
+    let result = JSON.parse(await user.loginUser(data));
+    if (result.status === 500) {
+      alert(result.error);
+    } else {
+      let token = result.token;
+      console.log(token);
+      sessionStorage.setItem("token", token);
+      alert("success");
+      handlePageChange();
+    }
   }
 
   return (
     <div className="signup-div-container">
       <div className="singup-div-inside-div">
-        <form
-          className="sign-up"
-          onSubmit={(e) => {
-            e.preventDefault();
-            handleSignInValues();
-          }}
-        >
+        <form className="sign-up">
           <div className="sign-up-inside-div">
             <h1 className="sign-head">Sign In</h1>
             {signInInputs}
             <RegisterButton
               buttonFor="Sign In"
-              registerAction={handleSignInValues}
+              registerAction={(event) => handleSignInValues(event)}
             />
 
             {/* Other options to sing in */}
-            <div class="other-sign-options-div-container">
+            <div className="other-sign-options-div-container">
               <div className="other-sign-options-inside-div">
                 <div className="social-account-div">
-                  <div class="line"></div>
-                  <p class="message">SignIn with social accounts</p>
-                  <div class="line"></div>
+                  <div className="line"></div>
+                  <p className="message">SignIn with social accounts</p>
+                  <div className="line"></div>
                 </div>
-                <div class="social-icons-div">
+                <div className="social-icons-div">
                   <button className="social-icons">
-                    <i class="bi bi-google"></i>
+                    <i className="bi bi-google"></i>
                   </button>
                   <button className="social-icons">
-                    <i class="bi bi-apple"></i>
+                    <i className="bi bi-apple"></i>
                   </button>
                   <button className="social-icons">
-                    <i class="bi bi-github"></i>
+                    <i className="bi bi-github"></i>
                   </button>
                 </div>
                 <div className="already-have-account-div">

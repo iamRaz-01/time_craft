@@ -3,7 +3,7 @@ function StatusCard({ icon, idName, content }) {
   return (
     <div className="status-card">
       <div className="task-card-icons-div">
-        <span class="material-symbols-outlined" id={idName}>
+        <span className="material-symbols-outlined" id={idName}>
           {icon}
         </span>
       </div>

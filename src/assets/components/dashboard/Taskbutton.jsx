@@ -8,7 +8,7 @@ const Taskbutton = ({ icon, text, onContentChange }) => {
   return (
     <button onClick={handleButtonClick}>
       <p className="icon">
-        <span class="material-symbols-outlined">{icon}</span>
+        <span className="material-symbols-outlined">{icon}</span>
       </p>
 
       <p>{text}</p>

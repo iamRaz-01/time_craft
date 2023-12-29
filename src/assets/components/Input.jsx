@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../css/sign.css";
 
 const Input = ({ properties }) => {
@@ -24,15 +23,13 @@ const DropDown = ({ name, dropDownFor, options }) => {
       <p>{dropDownFor}</p>
       <select name={name}>
         {dropDownFor === "Priority"
-          ? options.map((item) => (
-              <option key={item.priority} value={item.priority}>
-                <i className={item.icon}></i>
-                <span>{item.priority}</span>
+          ? options.map((item, index) => (
+              <option key={index} value={item.priority}>
+                {item.priority}
               </option>
             ))
-          : options.map((item) => (
-              <option key={item} value={item}>
-                <span className="material-icons-outlined">library_add</span>
+          : options.map((item, index) => (
+              <option key={index} value={item}>
                 {item}
               </option>
             ))}
@@ -40,4 +37,5 @@ const DropDown = ({ name, dropDownFor, options }) => {
     </div>
   );
 };
+
 export { Input, DropDown };

@@ -1,40 +1,63 @@
 import "../../css/dashboard/addtask.css";
 import { Input, DropDown } from "../Input";
 import { RegisterButton } from "../RegisterButton";
+import { useState } from "react";
+import Tag from '../../../api/Tag'
 
 function AddTask() {
-  const a = () => {
-    alert("hi");
+  const [tag, setTag] = useState('');
+  const [currentTags, setCurrentTags] = useState('');
+  const [taskName, setTaskName] = useState('');
+  const [description, setDescription] = useState('');
+  const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
+  const [priority, setPriority] = useState('');
+
+
+
+  async function createTag(name) {
+    let tag = new Tag()
+    let result = await tag.createTag(name);
+    console.log(result);
+  }
+
+
+  async function a(d) {
+    if (tag === 'create One') {
+      let newtag = prompt("Enter the name of the tag");
+      await createTag(newtag);
+
+    }
+    setTag(d);
   };
-  console.log(sessionStorage.getItem('token'))
   let data = [
     {
       type: "text",
       title: "",
       icon: "add_task",
       place: "Enter the title",
-      event: a,
+      event: setTaskName,
     },
     {
       type: "text",
       title: "",
       icon: "description",
       place: "Description",
-      event: a,
+      event: setDescription,
     },
     {
       type: "date",
       title: "",
       icon: "calendar_month",
       place: "",
-      event: a,
+      event: setDate,
     },
     {
       type: "text",
       title: "",
       icon: "timer",
       place: "  ",
-      event: a,
+      event: setTime,
     },
   ];
   const buttons = data.map((e) => {
@@ -46,14 +69,15 @@ function AddTask() {
     { priority: 'Medium', icon: 'bi bi-brightness-alt-high-fill' },
     { priority: 'High', icon: 'bi bi-brightness-high-fill' },
   ];
-  const tagOptions = ["New tag"]
+  const tagOptions = [{ tag: 'select tag' }, { tag: 'create One' }];
+
   return (
     <div className="create-task-div">
       <form>
         <h2>New Task </h2>
-        <DropDown dropDownFor="Select Tag" options={tagOptions} />
+        <DropDown dropDownFor="Select Tag" options={tagOptions} event={a} />
         {buttons}
-        <DropDown dropDownFor="Priority" options={priorityOptions} />
+        <DropDown dropDownFor="Priority" options={priorityOptions} event={a} />
         <RegisterButton buttonFor="Create"></RegisterButton>
       </form>
     </div>

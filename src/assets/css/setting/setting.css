@@ -1,0 +1,12 @@
+#schedule-task-div-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  height: 100vh;
+}
+.home-nav-and-body-content-div {
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+  flex: 4;
+}

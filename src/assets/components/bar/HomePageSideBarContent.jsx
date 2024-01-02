@@ -1,5 +1,7 @@
 import { useState } from "react";
 import "../../css/bar/HomePageSideBarContent.css";
+import { useNavigate, useLocation } from "react-router-dom";
+
 const sidebarContent = [
   { content: "Dashboard", icon: "bi bi-house-door" },
   { content: "Schedule", icon: "bi bi-calendar2-minus" },
@@ -9,10 +11,24 @@ const sidebarContent = [
 ];
 
 const HomePageSideBarContent = () => {
-  const [clickedIndex, setClickedIndex] = useState(0);
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  const handleItemClick = (index) => {
-    setClickedIndex(index);
+  let currentContent = location.pathname.substring(1);
+  currentContent = currentContent.toLowerCase();
+
+  const handleNavContentPageRedirection = (contentId) => {
+    if (contentId === "Dashboard") {
+      navigate("/dashboard");
+    } else if (contentId === "Schedule") {
+      navigate("/schedule");
+    } else if (contentId === "Chat") {
+      navigate("/chat");
+    } else if (contentId === "Activity") {
+      navigate("/activity");
+    } else {
+      navigate("/setting");
+    }
   };
 
   return (
@@ -27,10 +43,10 @@ const HomePageSideBarContent = () => {
             {sidebarContent.map((item, index) => (
               <div
                 className={`content-div ${
-                  index === clickedIndex ? "clicked" : ""
+                  currentContent === item.content.toLowerCase() ? "clicked" : ""
                 }`}
                 key={index}
-                onClick={() => handleItemClick(index)}
+                onClick={() => handleNavContentPageRedirection(item.content)}
               >
                 <div className="content-inside-div">
                   <i className={item.icon}></i>

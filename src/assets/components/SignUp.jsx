@@ -4,7 +4,7 @@ import { Input } from "./Input";
 import { RegisterButton } from "./RegisterButton";
 import User from "../../api/User";
 import { useNavigate } from "react-router-dom";
- const { createCanvas } = require("canvas");
+const { createCanvas } = require("canvas");
 const SignUp = () => {
   const [username, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -15,7 +15,7 @@ const SignUp = () => {
   const handlePageChange = () => {
     navigate("/signin");
   };
-  
+
   let data = [
     {
       type: "text",

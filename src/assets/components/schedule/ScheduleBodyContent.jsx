@@ -1,3 +1,4 @@
+import "../../css/schedule/scheduleBodyContent.css"
 const ScheduleBodyContent = () => {
     return (
       <div className="schedule-task-div-container">

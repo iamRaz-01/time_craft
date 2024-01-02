@@ -17,13 +17,11 @@ const Input = ({ properties }) => {
   );
 };
 
-const DropDown = ({ name, dropDownFor, options, event }) => {
+const DropDown = ({ name, dropDownFor, options }) => {
   return (
     <div className="input-div">
       <p>{dropDownFor}</p>
-      <select name={name} onChange={(e) => {
-        event(e.target.value);
-      }}>
+      <select name={name}>
         {dropDownFor === "Priority"
           ? options.map((item) => (
             <option key={item.priority} value={item.priority}>
@@ -32,9 +30,9 @@ const DropDown = ({ name, dropDownFor, options, event }) => {
             </option>
           ))
           : options.map((item) => (
-            <option key={item.tag} value={item.tag}>
-              {/* <span className="material-icons-outlined">library_add</span> */}
-              {item.tag}
+            <option key={item} value={item}>
+              <span className="material-icons-outlined">library_add</span>
+              {item}
             </option>
           ))}
       </select>

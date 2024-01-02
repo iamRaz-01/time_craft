@@ -1,16 +1,21 @@
 // Header.jsx
 import { useState } from "react";
-import "../../css/dashboard/header.css";
+import "../../css/bar/header.css";
 import { Taskbutton } from "./Taskbutton";
+import { useNavigate } from "react-router-dom";
 
-const Header = ({ onContentChange }) => {
+const Header = () => {
   const [isAddTaskMode, setIsAddTaskMode] = useState(true);
   const [addTaskIcon, setAddTaskIcon] = useState("add");
+  const navigate = useNavigate();
 
   const handleToggleMode = () => {
     setIsAddTaskMode((prevMode) => !prevMode);
     setAddTaskIcon(isAddTaskMode ? "arrow_back" : "add");
-    onContentChange();
+
+    if (addTaskIcon === "add") {
+      navigate("/addTask");
+    }
   };
 
   return (

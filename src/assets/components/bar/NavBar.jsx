@@ -1,6 +1,6 @@
-import "../css/navbar.css";
-import { HomePageSearchSideBarInput } from "../components/dashboard/HomePageSideBarSearchInput.jsx";
-import { HomePageSideBarContent } from "../components/dashboard/HomePageSideBarContent.jsx";
+import "../../css/bar/navbar.css";
+import { HomePageSearchSideBarInput } from "./HomePageSideBarSearchInput.jsx";
+import { HomePageSideBarContent } from "./HomePageSideBarContent.jsx";
 const NavBar = () => {
   return (
     <div className="nav-bar-container">

@@ -1,8 +1,8 @@
-import "../../css/schedule/schedule.css";
-import { ScheduleBodyContent } from "./ScheduleBodyContent";
+import "../../css/activity/activity.css";
 import { NavBar } from "../bar/NavBar";
 import { Header } from "../bar/Header";
-const Schedule = () => {
+import { ScheduleBodyContent } from "../schedule/ScheduleBodyContent";
+const Activity = () => {
   return (
     <div id="schedule-task-div-container">
       <NavBar />
@@ -13,4 +13,4 @@ const Schedule = () => {
     </div>
   );
 };
-export { Schedule };
+export { Activity };

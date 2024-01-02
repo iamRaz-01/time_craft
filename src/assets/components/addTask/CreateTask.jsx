@@ -3,7 +3,9 @@ import "../../css/addTask/createTask.css";
 import { Input } from "../Input.jsx";
 import { RegisterButton } from "../RegisterButton.jsx";
 import { DropDown } from "./DropDwon.jsx";
+import Tag from "../../../api/Tag.js";
 
+const tagApi = new Tag();
 function CreateTask() {
   const [taskTitle, setTaskTitle] = useState(null);
   const [taskDescription, setTaskDescription] = useState(null);
@@ -13,7 +15,16 @@ function CreateTask() {
   const [selectedPriorityOption, setSelectedPriorityOption] = useState(null);
   const [openTagOptions, setOpenTagOptions] = useState(false);
   const [openPriorityOptions, setPriorityOptions] = useState(false);
+  const [tagOptions, setTags] = useState([]);
 
+  async function getTags() {
+    let resultData = JSON.parse(await tagApi.getTags());
+    if (resultData.data != null || resultData.data != undefined) {
+      setTags(resultData.data);
+
+    }
+    console.log(resultData);
+  }
   const handleOpenPriorityOptions = () => {
     setPriorityOptions((prevOptions) => !prevOptions);
     if (openTagOptions === true) {
@@ -21,10 +32,12 @@ function CreateTask() {
     }
   };
 
-  const handleOpenTagOptions = () => {
+  const handleOpenTagOptions = async () => {
     setOpenTagOptions((prevOptions) => !prevOptions);
+    await getTags();
     if (openPriorityOptions === true) {
       setPriorityOptions(false);
+
     }
   };
 
@@ -68,14 +81,13 @@ function CreateTask() {
     { tag: "High", icon: "bi bi-brightness-high-fill" },
   ];
 
-  const tagOptions = [];
+
+
 
   const handleTaskCreation = (event) => {
     event.preventDefault();
-
-    console.log(
-      `${taskTitle}  ${taskDescription} ${taskDate} ${taskTime} ${selectedTagOptoin} ${selectedPriorityOption}`
-    );
+    const data = { taskTitle, taskDescription, taskDate, taskTime, selectedTagOptoin, selectedPriorityOption }
+    console.log(data);
   };
 
   return (

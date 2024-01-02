@@ -44,8 +44,8 @@ const DropDown = ({
 
   const handleItemClick = (item) => {
     if (dropDownFor === "Select a Tag") {
-      handleSetTagValue(item.tag);
-      hangleSelectedTagOption(item.tag);
+      handleSetTagValue(item.tag_name);
+      hangleSelectedTagOption(item.tag_name);
     } else {
       handleSetPriorityValue(item.tag);
       handleSelectedPriorityOption(item.tag);
@@ -102,7 +102,7 @@ const DropDown = ({
                         >
                           <div className="options-inside-div">
                             <i className={item.icon}></i>
-                            <p className="options-para">{item.tag}</p>
+                            <p className="options-para">{item.tag_name}</p>
                           </div>
                         </div>
                       ))

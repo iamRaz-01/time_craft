@@ -1,6 +1,6 @@
 import { NavBar } from "../bar/NavBar";
 import { Header } from "../bar/Header";
-import { CreateTask } from "./CreateTask.jsx";
+import { CreateTask } from "./CreateTask";
 import "../../css/addTask/addTask.css";
 
 const AddTask = () => {

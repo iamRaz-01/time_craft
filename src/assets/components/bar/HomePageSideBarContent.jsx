@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../../css/bar/HomePageSideBarContent.css";
 import { useNavigate, useLocation } from "react-router-dom";
 

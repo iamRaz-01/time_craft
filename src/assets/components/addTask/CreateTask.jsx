@@ -19,9 +19,8 @@ function CreateTask() {
 
   async function getTags() {
     let resultData = JSON.parse(await tagApi.getTags());
-    if (resultData.data != null || resultData.data != undefined) {
+    if (resultData.data !== null || resultData.data !== undefined) {
       setTags(resultData.data);
-
     }
     console.log(resultData);
   }
@@ -37,7 +36,6 @@ function CreateTask() {
     await getTags();
     if (openPriorityOptions === true) {
       setPriorityOptions(false);
-
     }
   };
 
@@ -81,13 +79,16 @@ function CreateTask() {
     { tag: "High", icon: "bi bi-brightness-high-fill" },
   ];
 
-
-
-
   const handleTaskCreation = (event) => {
     event.preventDefault();
-    const data = { taskTitle, taskDescription, taskDate, taskTime, selectedTagOptoin, selectedPriorityOption }
-    console.log(data);
+    const data = {
+      taskTitle,
+      taskDescription,
+      taskDate,
+      taskTime,
+      selectedTagOptoin,
+      selectedPriorityOption,
+    };
   };
 
   return (

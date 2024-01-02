@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../../css/addTask/DropDown.css"
+import Tag from "../../../api/Tag";
 
 const DropDown = ({
   dropDownFor,
@@ -26,9 +27,11 @@ const DropDown = ({
     setEditing(false);
   };
 
-  const handleEnterKeyPress = (e) => {
+  const handleEnterKeyPress = async (e) => {
     if (e.key === "Enter") {
       setTagValue(editTagValue);
+      const tag = new Tag();
+      await tag.createTag(editTagValue);
       setEditTagValue("");
       setEditing(false);
     }

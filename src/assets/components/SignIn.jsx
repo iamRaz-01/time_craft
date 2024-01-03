@@ -50,6 +50,8 @@ const SignIn = () => {
       let token = result.token;
       sessionStorage.setItem("token", token);
       alert("success");
+      let profile = JSON.parse(await user.getProfilePicture()).data[0];
+      sessionStorage.setItem('profile_image', JSON.stringify(profile.profile_image))
       handlePageChange();
     }
   }

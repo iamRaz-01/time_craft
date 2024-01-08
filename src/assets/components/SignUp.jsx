@@ -4,30 +4,39 @@ import { Input } from "./Input";
 import { RegisterButton } from "./RegisterButton";
 import User from "../../api/User";
 import { useNavigate } from "react-router-dom";
+import "../toast.js";
 const { createCanvas } = require("canvas");
 const SignUp = () => {
-  const [username, setName] = useState("");
+  const [username, setUsername] = useState("");
+  const [usernameInvalid, setUsernameInvalid] = useState(false);
   const [email, setEmail] = useState("");
+  const [emailInvalid, setEmailInvalid] = useState(false);
   const [password, setPassword] = useState("");
+  const [passwordInvalid, setPasswordInvalid] = useState(false);
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPasswordInvalid, setConfirmPasswordInvalid] = useState(false);
   const navigate = useNavigate();
 
   const handlePageChange = () => {
     navigate("/signin");
   };
 
-  let data = [
+  const data = [
     {
       type: "text",
       icon: "badge",
       place: "Enter the name",
-      event: setName,
+      event: setUsername,
+      invalid: usernameInvalid,
+      invalidMessage: "Please enter a valid name.",
     },
     {
       type: "email",
       icon: "email",
       place: "Enter your email",
       event: setEmail,
+      invalid: emailInvalid,
+      invalidMessage: "Please enter a valid email address.",
     },
     {
       type: "password",
@@ -35,6 +44,9 @@ const SignUp = () => {
       icon: "lock",
       place: "Enter your password",
       event: setPassword,
+      invalid: passwordInvalid,
+      invalidMessage:
+        "Password must be 8+ characters with at least one uppercase, one lowercase, one digit, and one symbol.",
     },
     {
       type: "password",
@@ -42,11 +54,13 @@ const SignUp = () => {
       icon: "lock",
       place: "Confirm your password",
       event: setConfirmPassword,
+      invalid: confirmPasswordInvalid,
+      invalidMessage: "Passwords do not match.",
     },
   ];
 
   const inputs = data.map((item, index) => (
-    <Input key={index} properties={item} title={item.title} />
+    <Input key={index} properties={item} invalid={item.invalid} />
   ));
 
   function getRandomColor() {
@@ -88,28 +102,42 @@ const SignUp = () => {
   }
 
   async function handleSignUpValues() {
+    let usernameError = false;
+    let emailError = false;
+    let passwordError = false;
+    let confirmPasswordError = false;
+
     // Validate name
     if (!username || /^\s*$/.test(username)) {
-      alert("Please enter a valid name.");
-      return;
+      usernameError = true;
     }
 
     // Validate email
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!email || !emailRegex.test(email)) {
-      alert("Please enter a valid email address.");
-      return;
+      emailError = true;
     }
 
     // Validate password
-    if (!password || password.length < 8) {
-      alert("Password must be at least 8 characters long.");
-      return;
+    const passwordRegex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()\-_=+{};:,<.>])/;
+    if (!password || password.length < 8 || !passwordRegex.test(password)) {
+      passwordError = true;
     }
 
     // Check if password and confirmPassword match
-    if (password !== confirmPassword) {
-      alert("Passwords don't match.");
+    if (password !== confirmPassword || passwordError) {
+      confirmPasswordError = true;
+    }
+
+    // Update state variables based on validation results
+    setUsernameInvalid(usernameError);
+    setEmailInvalid(emailError);
+    setPasswordInvalid(passwordError);
+    setConfirmPasswordInvalid(confirmPasswordError);
+
+    // If any validation error exists, stop further processing
+    if (usernameError || emailError || passwordError || confirmPasswordError) {
       return;
     }
 
@@ -123,6 +151,7 @@ const SignUp = () => {
       if (result.status === 500) {
         alert(result.error);
       } else {
+        showToast("Successfully registered with TimeCraft!", "success");
         handlePageChange();
       }
     } catch (error) {
@@ -147,22 +176,22 @@ const SignUp = () => {
             <RegisterButton buttonFor="Sign Up"></RegisterButton>
 
             {/* Other options to sing in */}
-            <div class="other-sign-options-div-container">
+            <div className="other-sign-options-div-container">
               <div className="other-sign-options-inside-div">
                 <div className="social-account-div">
-                  <div class="line"></div>
-                  <p class="message">SignUp with social accounts</p>
-                  <div class="line"></div>
+                  <div className="line"></div>
+                  <p className="message">SignUp with social accounts</p>
+                  <div className="line"></div>
                 </div>
-                <div class="social-icons-div">
+                <div className="social-icons-div">
                   <button className="social-icons">
-                    <i class="bi bi-google"></i>
+                    <i className="bi bi-google"></i>
                   </button>
                   <button className="social-icons">
-                    <i class="bi bi-apple"></i>
+                    <i className="bi bi-apple"></i>
                   </button>
                   <button className="social-icons">
-                    <i class="bi bi-github"></i>
+                    <i className="bi bi-github"></i>
                   </button>
                 </div>
                 <div className="already-have-account-div">

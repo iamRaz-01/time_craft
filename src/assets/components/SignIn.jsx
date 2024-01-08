@@ -7,7 +7,9 @@ import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
+  const [emailInvalid, setEmailInvalid] = useState(false);
   const [password, setPassword] = useState("");
+  const [passwordInvalid, setPasswordInvalid] = useState(false);
 
   const signInInputData = [
     {
@@ -15,6 +17,7 @@ const SignIn = () => {
       icon: "email",
       place: "Enter your email",
       event: setEmail,
+      invalid: emailInvalid,
     },
     {
       type: "password",
@@ -22,6 +25,7 @@ const SignIn = () => {
       icon: "lock",
       place: "Enter your password",
       event: setPassword,
+      invalid: passwordInvalid,
     },
   ];
 

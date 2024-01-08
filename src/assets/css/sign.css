@@ -26,7 +26,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.8em;
+  gap: 0.65em;
   width: 99%;
   padding: 2em 1em;
 }
@@ -42,7 +42,21 @@
   background-color: var(--body-color);
 }
 
-.input-div {
+.input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.input-inside-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 99%;
+  gap: 0.2em;
+}
+
+.valid-input-div {
   width: 90%;
   height: 45px;
   display: flex;
@@ -53,7 +67,19 @@
   background-color: var(--body-color);
 }
 
-.input-div input {
+.invalid-input-div {
+  width: 90%;
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 3%;
+  border-radius: 10px;
+  color: var(--invalid-input-color);
+  border: 1px solid var(--invalid-input-border-color);
+}
+
+.input {
   width: 80%;
   height: 70%;
   border: none;
@@ -64,6 +90,25 @@
 .input-div input:focus {
   background-color: var(--task-card-color);
   border-radius: 4px;
+}
+
+.invalid {
+  color: var(--invalid-input-color);
+}
+
+.error-message-div-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+
+.error-message-inside-div {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 12px;
+  gap: 0.2em;
 }
 
 .common-button {

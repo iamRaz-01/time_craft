@@ -3,12 +3,11 @@ import { useState } from "react";
 import "../../css/bar/header.css";
 import { Taskbutton } from "./Taskbutton";
 import { useNavigate } from "react-router-dom";
-
 const Header = () => {
+  const profile_pic = JSON.parse(sessionStorage.getItem('profile_image'));
   const [isAddTaskMode, setIsAddTaskMode] = useState(true);
   const [addTaskIcon, setAddTaskIcon] = useState("add");
   const navigate = useNavigate();
-
   const handleToggleMode = () => {
     setIsAddTaskMode((prevMode) => !prevMode);
     setAddTaskIcon(isAddTaskMode ? "arrow_back" : "add");
@@ -17,6 +16,8 @@ const Header = () => {
       navigate("/addTask");
     }
   };
+
+
 
   return (
     <div className="header">
@@ -32,7 +33,7 @@ const Header = () => {
         </div>
         <Taskbutton icon="notifications" text="Notifications" />
         <div className="profile-icon">
-          <span className="material-symbols-outlined">badge</span>
+          <img src={profile_pic.data} className="profile-icon" alt="profile_pic" />
         </div>
       </div>
     </div>

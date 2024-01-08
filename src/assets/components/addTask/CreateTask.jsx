@@ -4,11 +4,14 @@ import { Input } from "../Input.jsx";
 import { RegisterButton } from "../RegisterButton.jsx";
 import { DropDown } from "./DropDwon.jsx";
 import Tag from "../../../api/Tag.js";
+import Task from '../../../api/Task.js'
+import { useNavigate } from "react-router-dom";
 
 const tagApi = new Tag();
+const taskApi = new Task();
 function CreateTask() {
-  const [taskTitle, setTaskTitle] = useState(null);
-  const [taskDescription, setTaskDescription] = useState(null);
+  const [title, setTitle] = useState(null);
+  const [description, setDescription] = useState(null);
   const [taskDate, setTaskDate] = useState(null);
   const [taskTime, setTaskTime] = useState(null);
   const [selectedTagOptoin, setSelectedTagOption] = useState(null);
@@ -16,13 +19,12 @@ function CreateTask() {
   const [openTagOptions, setOpenTagOptions] = useState(false);
   const [openPriorityOptions, setPriorityOptions] = useState(false);
   const [tagOptions, setTags] = useState([]);
-
+  const navigate = useNavigate();
   async function getTags() {
     let resultData = JSON.parse(await tagApi.getTags());
     if (resultData.data !== null || resultData.data !== undefined) {
       setTags(resultData.data);
     }
-    console.log(resultData);
   }
   const handleOpenPriorityOptions = () => {
     setPriorityOptions((prevOptions) => !prevOptions);
@@ -45,14 +47,14 @@ function CreateTask() {
       title: "Enter the task title",
       icon: "add_task",
       place: "Enter task title",
-      event: setTaskTitle,
+      event: setTitle,
     },
     {
       type: "text",
       title: "Enter the task description",
       icon: "description",
       place: "Description about the task",
-      event: setTaskDescription,
+      event: setDescription,
     },
     {
       type: "date",
@@ -62,10 +64,10 @@ function CreateTask() {
       event: setTaskDate,
     },
     {
-      type: "time",
-      title: "Enter the task time",
+      type: "number",
+      title: "Enter the task time ",
       icon: "timer",
-      place: "Enter the task time",
+      place: "Enter the task time in mins",
       event: setTaskTime,
     },
   ];
@@ -74,11 +76,12 @@ function CreateTask() {
   });
 
   const priorityOptions = [
-    { tag: "Low", icon: "bi bi-brightness-alt-high" },
-    { tag: "Medium", icon: "bi bi-brightness-alt-high-fill" },
-    { tag: "High", icon: "bi bi-brightness-high-fill" },
+    { tag_name: "Low", icon: "bi bi-brightness-alt-high" },
+    { tag_name: "Medium", icon: "bi bi-brightness-alt-high-fill" },
+    { tag_name: "High", icon: "bi bi-brightness-high-fill" },
   ];
 
+<<<<<<< HEAD
   const handleTaskCreation = (event) => {
     event.preventDefault();
     const data = {
@@ -89,6 +92,21 @@ function CreateTask() {
       selectedTagOptoin,
       selectedPriorityOption,
     };
+=======
+
+
+
+  const handleTaskCreation = async (event) => {
+    event.preventDefault()
+    const data = { title, description, 'due_date': taskDate, 'timer': taskTime, 'tag_id': selectedTagOptoin, 'priority': selectedPriorityOption }
+    let result = JSON.parse(await taskApi.createTask(data));
+    if (result.status === 200) {
+      navigate('/schedule');
+    } else {
+      alert(result.error)
+    }
+
+>>>>>>> 80b86e82545f7fb9d35c68a59ab9ad4d3c47cf45
   };
 
   return (

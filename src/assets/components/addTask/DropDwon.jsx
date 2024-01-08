@@ -10,8 +10,8 @@ const DropDown = ({
   hangleSelectedTagOption,
   handleSelectedPriorityOption,
 }) => {
-  const [tagValue, setTagValue] = useState("");
-  const [priorityValue, setPriorityValue] = useState("");
+  const [tagValue, setTagValue] = useState('');
+  const [priorityValue, setPriorityValue] = useState('');
   const [editing, setEditing] = useState(false);
   const [editTagValue, setEditTagValue] = useState("");
 
@@ -50,8 +50,8 @@ const DropDown = ({
       handleSetTagValue(item.tag_name);
       hangleSelectedTagOption(item.tag_name);
     } else {
-      handleSetPriorityValue(item.tag);
-      handleSelectedPriorityOption(item.tag);
+      handleSetPriorityValue(item.tag_name);
+      handleSelectedPriorityOption(item.tag_name);
     }
     openOptions();
   };

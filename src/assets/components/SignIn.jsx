@@ -18,6 +18,7 @@ const SignIn = () => {
       place: "Enter your email",
       event: setEmail,
       invalid: emailInvalid,
+      invalidMessage: "Email address is not exists.",
     },
     {
       type: "password",
@@ -26,6 +27,7 @@ const SignIn = () => {
       place: "Enter your password",
       event: setPassword,
       invalid: passwordInvalid,
+      invalidMessage: "Invalid password. Please check your credentials",
     },
   ];
 
@@ -55,7 +57,10 @@ const SignIn = () => {
       sessionStorage.setItem("token", token);
       alert("success");
       let profile = JSON.parse(await user.getProfilePicture()).data[0];
-      sessionStorage.setItem('profile_image', JSON.stringify(profile.profile_image))
+      sessionStorage.setItem(
+        "profile_image",
+        JSON.stringify(profile.profile_image)
+      );
       handlePageChange();
     }
   }

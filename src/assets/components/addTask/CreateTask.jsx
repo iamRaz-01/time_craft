@@ -4,7 +4,7 @@ import { Input } from "../Input.jsx";
 import { RegisterButton } from "../RegisterButton.jsx";
 import { DropDown } from "./DropDwon.jsx";
 import Tag from "../../../api/Tag.js";
-import Task from '../../../api/Task.js'
+import Task from "../../../api/Task.js";
 import { useNavigate } from "react-router-dom";
 
 const tagApi = new Tag();
@@ -81,32 +81,22 @@ function CreateTask() {
     { tag_name: "High", icon: "bi bi-brightness-high-fill" },
   ];
 
-<<<<<<< HEAD
-  const handleTaskCreation = (event) => {
+  const handleTaskCreation = async (event) => {
     event.preventDefault();
     const data = {
-      taskTitle,
-      taskDescription,
-      taskDate,
-      taskTime,
-      selectedTagOptoin,
-      selectedPriorityOption,
+      title,
+      description,
+      due_date: taskDate,
+      timer: taskTime,
+      tag_id: selectedTagOptoin,
+      priority: selectedPriorityOption,
     };
-=======
-
-
-
-  const handleTaskCreation = async (event) => {
-    event.preventDefault()
-    const data = { title, description, 'due_date': taskDate, 'timer': taskTime, 'tag_id': selectedTagOptoin, 'priority': selectedPriorityOption }
     let result = JSON.parse(await taskApi.createTask(data));
     if (result.status === 200) {
-      navigate('/schedule');
+      navigate("/schedule");
     } else {
-      alert(result.error)
+      alert(result.error);
     }
-
->>>>>>> 80b86e82545f7fb9d35c68a59ab9ad4d3c47cf45
   };
 
   return (

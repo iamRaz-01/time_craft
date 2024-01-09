@@ -4,7 +4,7 @@ import { Input } from "./Input";
 import { RegisterButton } from "./RegisterButton";
 import User from "../../api/User";
 import { useNavigate } from "react-router-dom";
-import "../toast.js";
+import showToast from "../toast";
 const { createCanvas } = require("canvas");
 const SignUp = () => {
   const [username, setUsername] = useState("");

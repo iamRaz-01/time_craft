@@ -1,4 +1,4 @@
-function showToast(content, type) {
+export default function showToast(content, type) {
   createToastElement(content, type);
   const toastContainer = document.querySelector(".toast-container");
   const toast = document.getElementById("toast");

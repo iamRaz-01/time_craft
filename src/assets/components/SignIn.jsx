@@ -4,6 +4,7 @@ import "../css/sign.css";
 import { useState } from "react";
 import User from "../../api/User";
 import { useNavigate } from "react-router-dom";
+import showToast from "../toast";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -55,12 +56,16 @@ const SignIn = () => {
     } else {
       let token = result.token;
       sessionStorage.setItem("token", token);
-      alert("success");
-      let profile = JSON.parse(await user.getProfilePicture()).data[0];
-      sessionStorage.setItem(
-        "profile_image",
-        JSON.stringify(profile.profile_image)
-      );
+      showToast("Successfully get into the TimeCraft!", "success");
+      const dataResult = JSON.parse(await user.getProfilePicture());
+      if (dataResult.status == 200) {
+        let arr =  dataResult.data[0].profile_image;
+        sessionStorage.setItem(
+          "profile_image",
+          JSON.stringify(arr)
+          );
+          console.log(arr);
+      }
       handlePageChange();
     }
   }

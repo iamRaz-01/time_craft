@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Input } from "./Input";
 import { RegisterButton } from "./RegisterButton";
 import User from "../../api/User";
+import { showToast } from "../toast";
 import { useNavigate } from "react-router-dom";
-import "../toast.js";
 const { createCanvas } = require("canvas");
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -16,8 +16,8 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [confirmPasswordInvalid, setConfirmPasswordInvalid] = useState(false);
   const navigate = useNavigate();
-
   const handlePageChange = () => {
+    showToast("Successfully registered with TimeCraft!", "success");
     navigate("/signin");
   };
 
@@ -151,7 +151,6 @@ const SignUp = () => {
       if (result.status === 500) {
         alert(result.error);
       } else {
-        showToast("Successfully registered with TimeCraft!", "success");
         handlePageChange();
       }
     } catch (error) {

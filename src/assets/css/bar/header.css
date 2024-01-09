@@ -31,17 +31,10 @@
   justify-content: center;
   color: var(--body-color);
   border-radius: 50px;
-  background-color: var(--side-bar-background-color);
   border: 1px solid transparent;
-}
-
-.profile-icon span {
-  font-size: 30px;
+  box-shadow: var(--header-button-box-shadow);
 }
 
 .profile-icon:hover {
-  border: 1px solid var(--side-bar-background-color);
-  color: var(--side-bar-background-color);
-  background-color: var(--body-color);
   cursor: pointer;
 }

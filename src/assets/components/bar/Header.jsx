@@ -31,11 +31,7 @@ const Header = () => {
         </div>
         <Taskbutton icon="notifications" text="Notifications" />
         <div className="profile-icon">
-          <img
-            src={profile_pic.data}
-            className="profile-icon"
-            alt="profile_pic"
-          />
+          <img src={profile_pic} className="profile-icon" alt="profile_pic" />
         </div>
       </div>
     </div>

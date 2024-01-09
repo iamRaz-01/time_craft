@@ -5,6 +5,7 @@ import { RegisterButton } from "./RegisterButton";
 import User from "../../api/User";
 import { showToast } from "../toast";
 import { useNavigate } from "react-router-dom";
+import showToast from "../toast";
 const { createCanvas } = require("canvas");
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -72,7 +73,7 @@ const SignUp = () => {
     return color;
   }
 
-  function createAvatar(username, size = 200, fontSize = 100) {
+  function createAvatar(username, size, fontSize) {
     const canvas = createCanvas(size, size);
     const context = canvas.getContext("2d");
 
@@ -93,7 +94,7 @@ const SignUp = () => {
     const y = size / 2 + fontSize / 3;
 
     // Draw the username on the canvas
-    context.fillText(username.charAt(0).toUpperCase(), x, y);
+    context.fillText(username.toUpperCase(), x, y);
 
     // Convert canvas to data URL
     const dataUrl = canvas.toDataURL();
@@ -141,7 +142,7 @@ const SignUp = () => {
       return;
     }
 
-    const profileImage = createAvatar(username);
+    const profileImage = createAvatar(username.trim().charAt(0), 200, 100);
     const data = { username, email, password, profile_image: profileImage };
     let user = new User();
 

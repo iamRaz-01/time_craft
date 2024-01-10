@@ -14,8 +14,7 @@
   --header-button-box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
   --task-table-head-background-color: #dde3ff;
   --task-table-box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
-  --each-task-card-box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
-    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+  --each-task-card-box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
 
 body {

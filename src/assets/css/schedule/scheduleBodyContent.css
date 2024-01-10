@@ -139,7 +139,7 @@
   display: flex;
   align-items: center;
   flex: 1 1;
-  height: 500px;
+  height: 34.375em;
   overflow-y: scroll;
   flex-direction: column;
 }
@@ -148,11 +148,19 @@
   display: none;
 }
 .task-data-div-container {
-  margin-top: 0.6em;
+  margin-top: 0.5em;
   box-shadow: var(--each-task-card-box-shadow);
+  transition: background-color 0.3s, box-shadow 0.3s;
   width: 99.3%;
   border-radius: 0.4em;
+  cursor: pointer;
 }
+
+.task-data-div-container:hover {
+  background-color: rgba(81, 81, 87, 0.1);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
+}
+
 .task-data-inside-div {
   padding: 0.5em 0.3em;
   display: flex;
@@ -165,4 +173,54 @@
 }
 .task-data {
   font-size: 14px;
+}
+
+/* search input css */
+
+.task-search-div-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+.task-search-input-inside-div {
+  display: flex;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  max-width: 190px;
+}
+
+#task-search-input {
+  width: 100%;
+  height: 34px;
+  line-height: 28px;
+  padding: 0 1rem;
+  padding-left: 2.5rem;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: var( --task-card-color);
+  color: #0d0c22;
+  transition: 0.3s ease;
+}
+
+#task-search-input::placeholder {
+  color: #9e9ea7;
+}
+
+#task-search-input:focus,
+#task-search-input:hover {
+  outline: none;
+  border-color: rgba(234, 76, 137, 0.4);
+  background-color: #fff;
+  box-shadow: 0 0 0 4px rgb(234 76 137 / 10%);
+}
+
+.task-search-icon {
+  position: absolute;
+  left: 1rem;
+  fill: #9e9ea7;
+  width: 1rem;
+  height: 1rem;
 }

@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Input } from "./Input";
 import { RegisterButton } from "./RegisterButton";
 import User from "../../api/User";
-import { showToast } from "../toast";
 import { useNavigate } from "react-router-dom";
 import showToast from "../toast";
 const { createCanvas } = require("canvas");

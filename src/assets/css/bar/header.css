@@ -3,7 +3,7 @@
   justify-content: space-between;
   padding: 5px;
   flex: 4;
-  max-height: 14%;
+  max-height: 3.3em;
 }
 
 .profile-div {
@@ -24,13 +24,13 @@
 }
 
 .profile-icon {
-  width: 50px;
-  height: 50px;
+  width: 42px;
+  height: 37px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--body-color);
-  border-radius: 50px;
+  border-radius: 50%;
   border: 1px solid transparent;
   box-shadow: var(--header-button-box-shadow);
 }

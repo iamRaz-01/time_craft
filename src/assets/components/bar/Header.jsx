@@ -26,9 +26,7 @@ const Header = () => {
       />
 
       <div className="profile-div">
-        <div className="time">
-          <p>10 : 00 pm</p>
-        </div>
+      <Taskbutton icon="notifications" text="Time" />
         <Taskbutton icon="notifications" text="Notifications" />
         <div className="profile-icon">
           <img src={profile_pic} className="profile-icon" alt="profile_pic" />

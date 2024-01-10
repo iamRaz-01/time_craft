@@ -1,4 +1,4 @@
-button {
+.task-button {
   width: 150px;
   height: 50px;
   border-radius: 30px;
@@ -12,18 +12,18 @@ button {
   box-shadow: var(--header-button-box-shadow);
 }
 
-button:hover {
+.task-button:hover {
   background-color: #efefef;
   border-color: #efefef;
 }
 
-button:active {
+.task-buttontton:active {
   background-color: #dcdcdc;
   border-color: #dcdcdc;
   box-shadow: var(--header-button-box-shadow);
 }
 
-button .icon {
+.task-button .icon {
   width: 40px;
   height: 40px;
   display: flex;

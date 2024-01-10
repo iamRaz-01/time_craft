@@ -1,0 +1,168 @@
+.schedule-task-div-container {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+.schedule-task-inside-div {
+  display: flex;
+  align-items: center;
+  width: 99%;
+  flex-direction: column;
+  gap: 2em;
+}
+.schedule-filter-options-div-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 99%;
+}
+
+.schedule-fileter-options-inside-div {
+  display: flex;
+  align-items: center;
+  width: 99%;
+  gap: 8%;
+}
+
+.schedule-fillter-button {
+  background: none;
+  border: none;
+  padding: 7px;
+  font-size: 0.875rem;
+  color: #636269;
+  font-family: inherit;
+  background-color: var(--task-card-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.67em;
+}
+
+.list-day-month-filter-button-div,
+.complete-incomplete-filter-button-div {
+  display: flex;
+  border-radius: 7px;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  button {
+    &:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    + button {
+      border-left: 1px solid rgb(231 234 242);
+    }
+  }
+}
+
+.filter-button-span {
+  width: max-content;
+}
+
+.task-showing-div-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+}
+.task-showing-inside-div-container {
+  display: flex;
+  align-items: center;
+  width: 99%;
+  flex-direction: column;
+  box-shadow: var(--task-table-box-shadow);
+  border-radius: 0.78em;
+}
+
+/* task head */
+.task-data-common-div {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.task-data-common-inside-div {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.task-head-div-container {
+  background-color: var(--task-table-head-background-color);
+  height: 2.8em;
+  border-radius: 0.78em 0.78em 0em 0em;
+}
+
+.task-data-common-inside-div {
+  div {
+    &:first-child {
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    &:last-child {
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+
+    + div {
+      border-left: 1px solid var(--sign-icon-border);
+    }
+  }
+}
+.column-div {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+.task-head,
+.task-data {
+  margin: 0;
+  padding: 0;
+}
+
+.task-data-showing-div-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.task-data-showing-inside-div {
+  display: flex;
+  align-items: center;
+  flex: 1 1;
+  height: 500px;
+  overflow-y: scroll;
+  flex-direction: column;
+}
+
+.task-data-showing-inside-div::-webkit-scrollbar {
+  display: none;
+}
+.task-data-div-container {
+  margin-top: 0.6em;
+  box-shadow: var(--each-task-card-box-shadow);
+  width: 99.3%;
+  border-radius: 0.4em;
+}
+.task-data-inside-div {
+  padding: 0.5em 0.3em;
+  display: flex;
+  flex: 1;
+  align-items: center;
+}
+
+.data-div {
+  border: none;
+}
+.task-data {
+  font-size: 14px;
+}

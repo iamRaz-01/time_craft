@@ -9,9 +9,13 @@
   --today-task-color: #94a7fc;
   --sign-icon-border: rgba(156, 163, 175, 1);
   --invalid-input-color: #f87171;
-  --invalid-input-background-color:#fed2d2;
-  --invalid-input-border-color:#f73f3f;
-  --header-button-box-shadow:rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  --invalid-input-background-color: #fed2d2;
+  --invalid-input-border-color: #f73f3f;
+  --header-button-box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  --task-table-head-background-color: #dde3ff;
+  --task-table-box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+  --each-task-card-box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em,
+    rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
 }
 
 body {

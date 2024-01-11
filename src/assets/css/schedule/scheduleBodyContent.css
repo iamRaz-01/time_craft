@@ -21,7 +21,19 @@
   display: flex;
   align-items: center;
   width: 99%;
-  gap: 8%;
+}
+.task-filter-type-div-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1.4;
+}
+
+.task-filter-type-inside-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 99%;
 }
 
 .schedule-fillter-button {
@@ -175,20 +187,36 @@
   font-size: 14px;
 }
 
+/* search input and filter options div */
+
+.search-bar-task-filter-div-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1.5;
+}
+
+.search-bar-task-filter-inside-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
 /* search input css */
 
 .task-search-div-container {
   display: flex;
   align-items: center;
   flex: 1;
-  justify-content: center;
+  justify-content: flex-end;
 }
 .task-search-input-inside-div {
   display: flex;
   line-height: 28px;
   align-items: center;
   position: relative;
-  max-width: 190px;
+  width: 90%;
 }
 
 #task-search-input {
@@ -200,7 +228,7 @@
   border: 2px solid transparent;
   border-radius: 8px;
   outline: none;
-  background-color: var( --task-card-color);
+  background-color: var(--task-card-color);
   color: #0d0c22;
   transition: 0.3s ease;
 }
@@ -223,4 +251,47 @@
   fill: #9e9ea7;
   width: 1rem;
   height: 1rem;
+}
+
+/* filter options div */
+
+.filter-div-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 0.35;
+}
+.filter-inside-div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.3s ease;
+  padding: 0.4rem;
+  width: 78%;
+  background-color: var(--task-card-color);
+  border-radius: 8px;
+  font-size: 14px;
+  color: var(--sign-icon-border);
+}
+
+/* filter icon and content */
+
+.filter-icon-content-div-container {
+  display: flex;
+  align-items: center;
+  flex: 3;
+}
+
+.filter-icon-content-inside-div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10%;
+}
+/* filter dropdown  */
+.filter-arrow-div-container {
+  display: flex;
+  align-items: center;
+  width: 1;
+  justify-content: center;
 }
